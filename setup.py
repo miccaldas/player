@@ -1,14 +1,14 @@
 from setuptools import setup
 
 setup(
-    name="player",
+    name="cli_app_list",
     version=4.0,
     author="mclds",
     author_email="mclds@protonmail.com",
-    description="Myattempt at making command-line music player.",
+    description="Manage the famously elusive command-line app, creature.",
     long_description="README.md",
     long_description_content_type="text/markdown",
-    url="https://codeberg.org/micaldas/player",
+    url="https://codeberg.org/micaldas/cli_app_list",
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
@@ -19,6 +19,7 @@ setup(
         "mysql.connector",
         "colr",
         "questionary",
+        "loguru",
         "click",
     ],
     include_package_data=True,
