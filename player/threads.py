@@ -6,19 +6,21 @@ from time import sleep
 import click
 import isort
 import psutil
-import snoop
+
+# import snoop
 from pydub import AudioSegment
 from pydub.playback import play
 from pynput.keyboard import Key, KeyCode, Listener
-from snoop import pp
+
+# from snoop import pp
 from tqdm import tqdm
 
 
-def type_watch(source, value):
-    return "type({})".format(source), type(value)
+# def type_watch(source, value):
+#     return "type({})".format(source), type(value)
 
 
-snoop.install(watch_extras=[type_watch])
+# snoop.install(watch_extras=[type_watch])
 
 
 # @snoop
@@ -48,13 +50,9 @@ def player():
     )
     print("\n")
     escolha = str(input(click.style(" » What do you want to hear? :~ ", fg="green", bold=True)))
-    pp(escolha)
 
     print("\n")
-    album = []
-    for i in os.scandir(escolha):
-        if i.is_file():
-            album.append(i.path)
+    album = [i.path for i in os.scandir(escolha) if i.is_file()]
     for song in album:
         musicas = os.path.basename(os.path.normpath(song))
         print(click.style(musicas, fg="bright_white", bold=True))
@@ -62,26 +60,21 @@ def player():
         t = Thread(target=play, args=(sound,))
         t.start()
         dur = sound.duration_seconds
-        for sec in tqdm(range(int(dur)), bar_format="{desc}: {percentage:.0f}%|{bar} | {elapsed}<{remaining}"):
+        for _ in tqdm(range(int(dur)), bar_format="{desc}: {percentage:.0f}%|{bar} | {elapsed}<{remaining}"):
             sleep(1)
         tq = Thread(target=tqdm)
         tq.start()
         print("\n")
 
 
-@snoop
+# @snoop
 def find():
     """Find the process pid with psutil"""
     player()
-    lspid = []  # Create a list to house the processes output
     name = "python"  # The player name process is always python
-    for p in psutil.process_iter(["name"]):  # For item in list of iterable processes names,
-        if p.info["name"] == name:  # If process name is the same as python,
-            lspid.append(p)  # Append to list
+    lspid = [p for p in psutil.process_iter(["name"]) if p.info["name"] == name]
     player_pid = lspid[0].pid  # The player pid seems to be always the first on the list of processes.
-    # As the list items are psutil.Process objects, you can add to it the pid method to return only the pid
-    p = psutil.Process(int(player_pid))  # Creates a psutil.Process with just the pid
-    return p
+    return psutil.Process(int(player_pid))
 
 
 def mata():
@@ -119,7 +112,7 @@ def get_vk(key):
 
 def is_combination_pressed(combination):
     """Check if a combination is satisfied using the keys pressed in pressed_vks"""
-    return all([get_vk(key) in pressed_vks for key in combination])
+    return all(get_vk(key) in pressed_vks for key in combination)
 
 
 def on_press(key):

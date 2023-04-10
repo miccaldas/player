@@ -1,22 +1,18 @@
 """ Module that aggregates all commands. find() gives the pid and the other functions use psutil to do various manipulations """
 import isort
 import psutil
-import snoop
+
+# import snoop
 from pynput.keyboard import Key, KeyCode, Listener
 
 
-@snoop
+# @snoop
 def find():
     """Find the process pid with psutil"""
-    lspid = []  # Create a list to house the processes output
     name = "python"  # The player name process is always python
-    for p in psutil.process_iter(["name"]):  # For item in list of iterable processes names,
-        if p.info["name"] == name:  # If process name is the same as python,
-            lspid.append(p)  # Append to list
+    lspid = [p for p in psutil.process_iter(["name"]) if p.info["name"] == name]
     player_pid = lspid[0].pid  # The player pid seems to be always the first on the list of processes.
-    # As the list items are psutil.Process objects, you can add to it the pid method to return only the pid
-    p = psutil.Process(int(player_pid))  # Creates a psutil.Process with just the pid
-    return p
+    return psutil.Process(int(player_pid))
 
 
 def mata():
@@ -54,7 +50,7 @@ def get_vk(key):
 
 def is_combination_pressed(combination):
     """Check if a combination is satisfied using the keys pressed in pressed_vks"""
-    return all([get_vk(key) in pressed_vks for key in combination])
+    return all(get_vk(key) in pressed_vks for key in combination)
 
 
 def on_press(key):

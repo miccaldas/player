@@ -38,10 +38,7 @@ def player():
     print("\n")
     escolha = str(input(click.style(" » What do you want to hear? :~ ", fg="green", bold=True)))
     print("\n")
-    album = []
-    for i in os.scandir(escolha):
-        if i.is_file():
-            album.append(i.path)
+    album = [i.path for i in os.scandir(escolha) if i.is_file()]
     for song in album:
         musicas = os.path.basename(os.path.normpath(song))
         print(click.style(musicas, fg="bright_white", bold=True))
@@ -50,7 +47,8 @@ def player():
         t = threading.Thread(target=play, args=(sound,))
         t.start()
         dur = sound.duration_seconds
-        for sec in tqdm(range(int(dur)), bar_format="{desc}: {percentage:.0f}%|{bar} | {elapsed}<{remaining}"):
+        # Use underscore for when you want a for loop, but don't care about the index. Suggested by Sourcery.
+        for _ in tqdm(range(int(dur)), bar_format="{desc}: {percentage:.0f}%|{bar} | {elapsed}<{remaining}"):
             sleep(1)
         print("\n")
 
