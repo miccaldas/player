@@ -12,9 +12,15 @@ from tqdm import tqdm
 
 # @snoop
 def player():
-    """The program should present the content of the 'music' folder, create a prompt for the user to choose from, and reproduce the files
-    with a timer."""
-    # https://stackoverflow.com/questions/5817209/browse-files-and-subfolders-in-python
+    """
+    The program should present the content of the 'music' folder,
+    create a prompt for the user to choose from, and reproduce the files
+    with a timer.
+
+    'F6' - Lowers the volume,
+    'F7' - Raises it,
+    'F8' - Mutes it.
+    """
     for i in os.scandir("/home/mic/python/yt_player/yt_player/music"):
         if i.is_file():
             print(i.path)
