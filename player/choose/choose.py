@@ -78,10 +78,7 @@ def choose(content):
         # plus a sperator line and the line proper; we get the last value in the
         # 'heights' list, corresponding to the height of the last entry, and add two.
         exitht = heights[-1] + 2
-        print(
-            term.move_xy(wdth, exitht)
-            + "Press 'e' to exit after choosing. Press 'q' to exit this screen."
-        )
+        print(term.move_xy(wdth, exitht) + "Press 'e' to exit after choosing. Press 'q' to exit this screen.")
 
         # Here to assure we can access 'inpt' value outside the loop.
         inpt = ""

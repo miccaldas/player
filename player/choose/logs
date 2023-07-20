@@ -1,505 +1,416 @@
-23:36:24.68 >>> Call to main in File "/home/mic/python/player/player/choose/main.py", line 23
-23:36:24.68   23 | def main():
-23:36:24.68   25 |     music = "/home/mic/python/yt_player/yt_player/music"
-23:36:24.68 .......... music = '/home/mic/python/yt_player/yt_player/music'
-23:36:24.68 .......... type(music) = <class 'str'>
-23:36:24.68   27 |     choose(music)
-    23:36:24.69 >>> Call to choose in File "/home/mic/python/player/player/choose/choose.py", line 22
-    23:36:24.69 ...... content = '/home/mic/python/yt_player/yt_player/music'
-    23:36:24.69 ...... type(content) = <class 'str'>
-    23:36:24.69   22 | def choose(content):
-    23:36:24.69   26 |     content_list = os.listdir(content)
-    23:36:24.69 .......... content_list = ['porridge_radio', 'planning_for_a_burial', 'nick_cave', ..., 'songs:_ohia', 'viagra_boys', 'alt-j']
-    23:36:24.69 .......... len(content_list) = 20
-    23:36:24.69 .......... type(content_list) = <class 'list'>
-    23:36:24.69   28 |     longest = len(max(content_list))
-    23:36:24.69 .......... longest = 8
-    23:36:24.69 .......... type(longest) = <class 'int'>
-    23:36:24.69   29 |     choicelst = []
-    23:36:24.69 .......... type(choicelst) = <class 'list'>
-    23:36:24.69   31 |     if content.endswith("music"):
-    23:36:24.69   32 |         title = "CHOOSE AN ARTIST"
-    23:36:24.69 .............. title = 'CHOOSE AN ARTIST'
-    23:36:24.69 .............. type(title) = <class 'str'>
-    23:36:24.69   36 |     heights = []
-    23:36:24.69 .......... type(heights) = <class 'list'>
-    23:36:24.69   38 |     term = Terminal()
-    23:36:24.71 .......... term = <blessed.terminal.Terminal object at 0x7fbaa7818b50>
-    23:36:24.71 .......... term.shape = ''
-    23:36:24.71 .......... term.dtype = ''
-    23:36:24.71 .......... type(term) = <class 'blessed.terminal.Terminal'>
-    23:36:24.71   43 |     wdth = int(term.width / 4)
-    23:36:24.71 .......... wdth = 42
-    23:36:24.71 .......... type(wdth) = <class 'int'>
-    23:36:24.71   49 |     ht = int((term.height - (len(content_list) + 4)) / 2)
-    23:36:24.71 .......... ht = 2
-    23:36:24.71 .......... type(ht) = <class 'int'>
-    23:36:24.71   53 |     twdth = wdth + int(longest / 2)
-    23:36:24.71 .......... twdth = 46
-    23:36:24.71 .......... type(twdth) = <class 'int'>
-    23:36:24.71   58 |     albums = [[f, str(f) + " - " + "".join(i)] for f, i in enumerate(content_list)]
-        23:36:24.71 List comprehension:
-        23:36:24.71   58 |     albums = [[f, str(f) + " - " + "".join(i)] for f, i in enumerate(content_list)]
-        23:36:24.71 .......... Iterating over <enumerate object at 0x7fba9b279df0>
-        23:36:24.71 .......... Values of type(.0): <class 'enumerate'>
-        23:36:24.71 .......... Values of f: 0, 1, 2, 3, 4, ..., 15, 16, 17, 18, 19
-        23:36:24.71 .......... Values of type(f): <class 'int'>
-        23:36:24.71 .......... Values of i: 'porridge_radio', 'planning_for_a_burial', 'nick_cave', 'have_a_nice_life', 'son_house', ..., 'fontaines_dc', 'deluge', 'songs:_ohia', 'viagra_boys', 'alt-j'
-        23:36:24.71 .......... Values of type(i): <class 'str'>
-        23:36:24.71 Result: [[0, '0 - porridge_radio'], [1, '1 - planning_for_a_burial'], [2, '2 - nick_cave'], ..., [17, '17 - songs:_ohia'], [18, '18 - viagra_boys'], [19, '19 - alt-j']]
-    23:36:24.71   58 |     albums = [[f, str(f) + " - " + "".join(i)] for f, i in enumerate(content_list)]
-    23:36:24.71 .......... albums = [[0, '0 - porridge_radio'], [1, '1 - planning_for_a_burial'], [2, '2 - nick_cave'], ..., [17, '17 - songs:_ohia'], [18, '18 - viagra_boys'], [19, '19 - alt-j']]
-    23:36:24.71 .......... len(albums) = 20
-    23:36:24.71 .......... type(albums) = <class 'list'>
-    23:36:24.71   64 |     with term.fullscreen(), term.cbreak():
-    23:36:24.71   66 |         print(term.move + term.black_on_peachpuff + term.bold + term.clear, end="")
-    23:36:24.71   69 |         print(term.move_xy(twdth, (ht - 2)) + title)
-    23:36:24.71   73 |         for album in albums:
-    23:36:24.71 .............. album = [0, '0 - porridge_radio']
-    23:36:24.71 .............. len(album) = 2
-    23:36:24.71 .............. type(album) = <class 'list'>
-    23:36:24.71   74 |             hght = ht + album[0]
-    23:36:24.71 .................. hght = 2
-    23:36:24.71 .................. type(hght) = <class 'int'>
-    23:36:24.71   75 |             heights.append(hght)
-    23:36:24.71 .................. heights = [2]
-    23:36:24.71 .................. len(heights) = 1
-    23:36:24.71   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:36:24.71   73 |         for album in albums:
-    23:36:24.71 .............. album = [1, '1 - planning_for_a_burial']
-    23:36:24.71   74 |             hght = ht + album[0]
-    23:36:24.71 .................. hght = 3
-    23:36:24.71   75 |             heights.append(hght)
-    23:36:24.71 .................. heights = [2, 3]
-    23:36:24.71 .................. len(heights) = 2
-    23:36:24.71   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:36:24.71   73 |         for album in albums:
-    23:36:24.71 .............. album = [2, '2 - nick_cave']
-    23:36:24.71   74 |             hght = ht + album[0]
-    23:36:24.71 .................. hght = 4
-    23:36:24.71   75 |             heights.append(hght)
-    23:36:24.71 .................. heights = [2, 3, 4]
-    23:36:24.71 .................. len(heights) = 3
-    23:36:24.71   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:36:24.71   73 |         for album in albums:
-    23:36:24.71 .............. album = [3, '3 - have_a_nice_life']
-    23:36:24.71   74 |             hght = ht + album[0]
-    23:36:24.71 .................. hght = 5
-    23:36:24.71   75 |             heights.append(hght)
-    23:36:24.71 .................. heights = [2, 3, 4, 5]
-    23:36:24.71 .................. len(heights) = 4
-    23:36:24.71   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:36:24.71   73 |         for album in albums:
-    23:36:24.71 .............. album = [4, '4 - son_house']
-    23:36:24.71   74 |             hght = ht + album[0]
-    23:36:24.71 .................. hght = 6
-    23:36:24.71   75 |             heights.append(hght)
-    23:36:24.71 .................. heights = [2, 3, 4, 5, 6]
-    23:36:24.71 .................. len(heights) = 5
-    23:36:24.71   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:36:24.71   73 |         for album in albums:
-    23:36:24.71 .............. album = [5, '5 - gnaw_their_tongues_full_album']
-    23:36:24.71   74 |             hght = ht + album[0]
-    23:36:24.71 .................. hght = 7
-    23:36:24.71   75 |             heights.append(hght)
-    23:36:24.71 .................. heights = [2, 3, 4, 5, 6, 7]
-    23:36:24.71 .................. len(heights) = 6
-    23:36:24.71   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:36:24.72   73 |         for album in albums:
-    23:36:24.72 .............. album = [6, '6 - giles_corey_full_album']
-    23:36:24.72   74 |             hght = ht + album[0]
-    23:36:24.72 .................. hght = 8
-    23:36:24.72   75 |             heights.append(hght)
-    23:36:24.72 .................. heights = [2, 3, 4, 5, 6, 7, 8]
-    23:36:24.72 .................. len(heights) = 7
-    23:36:24.72   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:36:24.72   73 |         for album in albums:
-    23:36:24.72 .............. album = [7, '7 - townes_van_zandt']
-    23:36:24.72   74 |             hght = ht + album[0]
-    23:36:24.72 .................. hght = 9
-    23:36:24.72   75 |             heights.append(hght)
-    23:36:24.72 .................. heights = [2, 3, 4, 5, 6, 7, 8, 9]
-    23:36:24.72 .................. len(heights) = 8
-    23:36:24.72   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:36:24.72   73 |         for album in albums:
-    23:36:24.72 .............. album = [8, '8 - Ufomammut']
-    23:36:24.72   74 |             hght = ht + album[0]
-    23:36:24.72 .................. hght = 10
-    23:36:24.72   75 |             heights.append(hght)
-    23:36:24.72 .................. heights = [2, 3, 4, 5, 6, 7, 8, 9, 10]
-    23:36:24.72 .................. len(heights) = 9
-    23:36:24.72   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:36:24.72   73 |         for album in albums:
-    23:36:24.72 .............. album = [9, '9 - wet_legh']
-    23:36:24.72   74 |             hght = ht + album[0]
-    23:36:24.72 .................. hght = 11
-    23:36:24.72   75 |             heights.append(hght)
-    23:36:24.72 .................. heights = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-    23:36:24.72 .................. len(heights) = 10
-    23:36:24.72   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:36:24.72   73 |         for album in albums:
-    23:36:24.72 .............. album = [10, '10 - have_a_nice_life_full_album']
-    23:36:24.72   74 |             hght = ht + album[0]
-    23:36:24.72 .................. hght = 12
-    23:36:24.72   75 |             heights.append(hght)
-    23:36:24.72 .................. heights = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-    23:36:24.72 .................. len(heights) = 11
-    23:36:24.72   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:36:24.72   73 |         for album in albums:
-    23:36:24.72 .............. album = [11, '11 - wet_leg']
-    23:36:24.72   74 |             hght = ht + album[0]
-    23:36:24.72 .................. hght = 13
-    23:36:24.72   75 |             heights.append(hght)
-    23:36:24.72 .................. heights = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-    23:36:24.72 .................. len(heights) = 12
-    23:36:24.72   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:36:24.72   73 |         for album in albums:
-    23:36:24.72 .............. album = [12, '12 - king_hannah']
-    23:36:24.72   74 |             hght = ht + album[0]
-    23:36:24.72 .................. hght = 14
-    23:36:24.72   75 |             heights.append(hght)
-    23:36:24.72 .................. heights = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-    23:36:24.72 .................. len(heights) = 13
-    23:36:24.72   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:36:24.72   73 |         for album in albums:
-    23:36:24.72 .............. album = [13, '13 - soccer_mommy']
-    23:36:24.72   74 |             hght = ht + album[0]
-    23:36:24.72 .................. hght = 15
-    23:36:24.72   75 |             heights.append(hght)
-    23:36:24.72 .................. heights = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-    23:36:24.72 .................. len(heights) = 14
-    23:36:24.72   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:36:24.72   73 |         for album in albums:
-    23:36:24.72 .............. album = [14, '14 - black_wing']
-    23:36:24.72   74 |             hght = ht + album[0]
-    23:36:24.72 .................. hght = 16
-    23:36:24.72   75 |             heights.append(hght)
-    23:36:24.72 .................. heights = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
-    23:36:24.72 .................. len(heights) = 15
-    23:36:24.72   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:36:24.73   73 |         for album in albums:
-    23:36:24.73 .............. album = [15, '15 - fontaines_dc']
-    23:36:24.73   74 |             hght = ht + album[0]
-    23:36:24.73 .................. hght = 17
-    23:36:24.73   75 |             heights.append(hght)
-    23:36:24.73 .................. heights = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
-    23:36:24.73 .................. len(heights) = 16
-    23:36:24.73   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:36:24.73   73 |         for album in albums:
-    23:36:24.73 .............. album = [16, '16 - deluge']
-    23:36:24.73   74 |             hght = ht + album[0]
-    23:36:24.73 .................. hght = 18
-    23:36:24.73   75 |             heights.append(hght)
-    23:36:24.73 .................. heights = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
-    23:36:24.73 .................. len(heights) = 17
-    23:36:24.73   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:36:24.73   73 |         for album in albums:
-    23:36:24.73 .............. album = [17, '17 - songs:_ohia']
-    23:36:24.73   74 |             hght = ht + album[0]
-    23:36:24.73 .................. hght = 19
-    23:36:24.73   75 |             heights.append(hght)
-    23:36:24.73 .................. heights = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
-    23:36:24.73 .................. len(heights) = 18
-    23:36:24.73   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:36:24.73   73 |         for album in albums:
-    23:36:24.73 .............. album = [18, '18 - viagra_boys']
-    23:36:24.73   74 |             hght = ht + album[0]
-    23:36:24.73 .................. hght = 20
-    23:36:24.73   75 |             heights.append(hght)
-    23:36:24.73 .................. heights = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-    23:36:24.73 .................. len(heights) = 19
-    23:36:24.73   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:36:24.73   73 |         for album in albums:
-    23:36:24.73 .............. album = [19, '19 - alt-j']
-    23:36:24.73   74 |             hght = ht + album[0]
-    23:36:24.73 .................. hght = 21
-    23:36:24.73   75 |             heights.append(hght)
-    23:36:24.73 .................. heights = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
-    23:36:24.73 .................. len(heights) = 20
-    23:36:24.73   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:36:24.73   73 |         for album in albums:
-    23:36:24.73   80 |         exitht = heights[-1] + 2
-    23:36:24.73 .............. exitht = 23
-    23:36:24.73 .............. type(exitht) = <class 'int'>
-    23:36:24.73   81 |         print(
-    23:36:24.73   82 |             term.move_xy(wdth, exitht)
-    23:36:24.73   83 |             + "Press 'e' to exit after choosing. Press 'q' to exit this screen."
-    23:36:24.73   82 |             term.move_xy(wdth, exitht)
-    23:36:24.73   81 |         print(
-    23:36:24.73   87 |         inpt = ""
-    23:36:24.73 .............. inpt = ''
-    23:36:24.73 .............. type(inpt) = <class 'str'>
-    23:36:24.73   89 |         while inpt.lower() != "q":
-    23:36:24.73   91 |             inpt = term.inkey()
-    23:36:26.92 .................. inpt = '2'
-    23:36:26.92 .................. type(inpt) = <class 'blessed.keyboard.Keystroke'>
-    23:36:26.92   97 |             if inpt != "e":
-    23:36:26.92   99 |                 choicelst.append(str(inpt))
-    23:36:26.92 ...................... choicelst = ['2']
-    23:36:26.92 ...................... len(choicelst) = 1
-    23:36:26.92  102 |                 chcstr = "".join(choicelst)
-    23:36:26.92 ...................... chcstr = '2'
-    23:36:26.92 ...................... type(chcstr) = <class 'str'>
-    23:36:26.92  105 |                 if chcstr:
-    23:36:26.92  106 |                     choice = [i for f, i in enumerate(content_list) if f == int(chcstr)]
-        23:36:26.92 List comprehension:
-        23:36:26.92  106 |                     choice = [i for f, i in enumerate(content_list) if f == int(chcstr)]
-        23:36:26.92 .......................... Iterating over <enumerate object at 0x7fba9b27a980>
-        23:36:26.92 .......................... Values of type(.0): <class 'enumerate'>
-        23:36:26.92 .......................... Values of chcstr: '2'
-        23:36:26.92 .......................... Values of type(chcstr): <class 'str'>
-        23:36:26.92 .......................... Values of f: 0, 1, 2, 3, 4, ..., 15, 16, 17, 18, 19
-        23:36:26.92 .......................... Values of type(f): <class 'int'>
-        23:36:26.92 .......................... Values of i: 'porridge_radio', 'planning_for_a_burial', 'nick_cave', 'have_a_nice_life', 'son_house', ..., 'fontaines_dc', 'deluge', 'songs:_ohia', 'viagra_boys', 'alt-j'
-        23:36:26.92 .......................... Values of type(i): <class 'str'>
-        23:36:26.92 Result: ['nick_cave']
-    23:36:26.92  106 |                     choice = [i for f, i in enumerate(content_list) if f == int(chcstr)]
-    23:36:26.92 .......................... choice = ['nick_cave']
-    23:36:26.92 .......................... len(choice) = 1
-    23:36:26.92 .......................... type(choice) = <class 'list'>
-    23:36:26.92  107 |                 with open("choice.bin", "wb") as f:
-    23:36:26.92 ...................... f = <_io.BufferedWriter name='choice.bin'>
-    23:36:26.92 ...................... type(f) = <class '_io.BufferedWriter'>
-    23:36:26.92  108 |                     pickle.dump(choice, f)
-    23:36:26.92  107 |                 with open("choice.bin", "wb") as f:
-    23:36:26.92   89 |         while inpt.lower() != "q":
-    23:36:26.92   91 |             inpt = term.inkey()
-    23:36:27.28 .................. inpt = 'e'
-    23:36:27.28   97 |             if inpt != "e":
-    23:36:27.28  110 |                 break
-    23:36:27.28   64 |     with term.fullscreen(), term.cbreak():
-    23:36:27.28 <<< Return value from choose: None
-23:36:27.28   27 |     choose(music)
-23:36:27.28   28 |     bins = os.listdir(os.getcwd())
-23:36:27.28 .......... bins = ['choice.bin', 'logs', 'play.py', 'main.py', 'choose.py']
-23:36:27.28 .......... len(bins) = 5
-23:36:27.28 .......... type(bins) = <class 'list'>
-23:36:27.28   30 |     if "choice.bin" in bins:
-23:36:27.28   31 |         with open("choice.bin", "rb") as f:
-23:36:27.28 .............. f = <_io.BufferedReader name='choice.bin'>
-23:36:27.28 .............. type(f) = <class '_io.BufferedReader'>
-23:36:27.28   32 |             artist = pickle.load(f)
-23:36:27.28 .................. artist = ['nick_cave']
-23:36:27.28 .................. len(artist) = 1
-23:36:27.28 .................. type(artist) = <class 'list'>
-23:36:27.28   31 |         with open("choice.bin", "rb") as f:
-23:36:27.28   33 |         album = choose(f"{music}/{artist[0]}")
-    23:36:27.28 >>> Call to choose in File "/home/mic/python/player/player/choose/choose.py", line 22
-    23:36:27.28 ...... content = '/home/mic/python/yt_player/yt_player/music/nick_cave'
-    23:36:27.28 ...... len(content) = 52
-    23:36:27.28 ...... type(content) = <class 'str'>
-    23:36:27.28   22 | def choose(content):
-    23:36:27.28   26 |     content_list = os.listdir(content)
-    23:36:27.28 .......... content_list = ['Ghosteen – Nick Cave and The Bad Seeds (Full Album Stream).mp4', 'Nick Cave & The Bad Seeds - No More Shall We Part (full album).mp4', 'Nick Cave - Tender Prey - Full Album 720p HD.mp4']
-    23:36:27.28 .......... len(content_list) = 3
-    23:36:27.28 .......... type(content_list) = <class 'list'>
-    23:36:27.28   28 |     longest = len(max(content_list))
-    23:36:27.29 .......... longest = 48
-    23:36:27.29 .......... type(longest) = <class 'int'>
-    23:36:27.29   29 |     choicelst = []
-    23:36:27.29 .......... type(choicelst) = <class 'list'>
-    23:36:27.29   31 |     if content.endswith("music"):
-    23:36:27.29   34 |         title = "CHOOSE AN ALBUM"
-    23:36:27.29 .............. title = 'CHOOSE AN ALBUM'
-    23:36:27.29 .............. type(title) = <class 'str'>
-    23:36:27.29   36 |     heights = []
-    23:36:27.29 .......... type(heights) = <class 'list'>
-    23:36:27.29   38 |     term = Terminal()
-    23:36:27.30 .......... term = <blessed.terminal.Terminal object at 0x7fba9b561710>
-    23:36:27.30 .......... term.shape = ''
-    23:36:27.30 .......... term.dtype = ''
-    23:36:27.30 .......... type(term) = <class 'blessed.terminal.Terminal'>
-    23:36:27.30   43 |     wdth = int(term.width / 4)
-    23:36:27.30 .......... wdth = 42
-    23:36:27.30 .......... type(wdth) = <class 'int'>
-    23:36:27.30   49 |     ht = int((term.height - (len(content_list) + 4)) / 2)
-    23:36:27.30 .......... ht = 10
-    23:36:27.30 .......... type(ht) = <class 'int'>
-    23:36:27.30   53 |     twdth = wdth + int(longest / 2)
-    23:36:27.30 .......... twdth = 66
-    23:36:27.30 .......... type(twdth) = <class 'int'>
-    23:36:27.30   58 |     albums = [[f, str(f) + " - " + "".join(i)] for f, i in enumerate(content_list)]
-        23:36:27.30 List comprehension:
-        23:36:27.30   58 |     albums = [[f, str(f) + " - " + "".join(i)] for f, i in enumerate(content_list)]
-        23:36:27.30 .......... Iterating over <enumerate object at 0x7fba9b27b6f0>
-        23:36:27.30 .......... Values of type(.0): <class 'enumerate'>
-        23:36:27.30 .......... Values of f: 0, 1, 2
-        23:36:27.30 .......... Values of type(f): <class 'int'>
-        23:36:27.30 .......... Values of i: 'Ghosteen – Nick Cave and The Bad Seeds (Full Album Stream).mp4', 'Nick Cave & The Bad Seeds - No More Shall We Part (full album).mp4', 'Nick Cave - Tender Prey - Full Album 720p HD.mp4'
-        23:36:27.30 .......... Values of len(i): 62, 66
-        23:36:27.30 .......... Values of type(i): <class 'str'>
-        23:36:27.30 Result: [[0, '0 - Ghosteen – Nick Cave and The Bad Seeds (Full Album Stream).mp4'], [1, '1 - Nick Cave & The Bad Seeds - No More Shall We Part (full album).mp4'], [2, '2 - Nick Cave - Tender Prey - Full Album 720p HD.mp4']]
-    23:36:27.30   58 |     albums = [[f, str(f) + " - " + "".join(i)] for f, i in enumerate(content_list)]
-    23:36:27.31 .......... albums = [[0, '0 - Ghosteen – Nick Cave and The Bad Seeds (Full Album Stream).mp4'], [1, '1 - Nick Cave & The Bad Seeds - No More Shall We Part (full album).mp4'], [2, '2 - Nick Cave - Tender Prey - Full Album 720p HD.mp4']]
-    23:36:27.31 .......... len(albums) = 3
-    23:36:27.31 .......... type(albums) = <class 'list'>
-    23:36:27.31   64 |     with term.fullscreen(), term.cbreak():
-    23:36:27.31   66 |         print(term.move + term.black_on_peachpuff + term.bold + term.clear, end="")
-    23:36:27.31   69 |         print(term.move_xy(twdth, (ht - 2)) + title)
-    23:36:27.31   73 |         for album in albums:
-    23:36:27.31 .............. album = [0, '0 - Ghosteen – Nick Cave and The Bad Seeds (Full Album Stream).mp4']
-    23:36:27.31 .............. len(album) = 2
-    23:36:27.31 .............. type(album) = <class 'list'>
-    23:36:27.31   74 |             hght = ht + album[0]
-    23:36:27.31 .................. hght = 10
-    23:36:27.31 .................. type(hght) = <class 'int'>
-    23:36:27.31   75 |             heights.append(hght)
-    23:36:27.31 .................. heights = [10]
-    23:36:27.31 .................. len(heights) = 1
-    23:36:27.31   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:36:27.31   73 |         for album in albums:
-    23:36:27.31 .............. album = [1, '1 - Nick Cave & The Bad Seeds - No More Shall We Part (full album).mp4']
-    23:36:27.31   74 |             hght = ht + album[0]
-    23:36:27.31 .................. hght = 11
-    23:36:27.31   75 |             heights.append(hght)
-    23:36:27.32 .................. heights = [10, 11]
-    23:36:27.32 .................. len(heights) = 2
-    23:36:27.32   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:36:27.32   73 |         for album in albums:
-    23:36:27.32 .............. album = [2, '2 - Nick Cave - Tender Prey - Full Album 720p HD.mp4']
-    23:36:27.32   74 |             hght = ht + album[0]
-    23:36:27.32 .................. hght = 12
-    23:36:27.32   75 |             heights.append(hght)
-    23:36:27.32 .................. heights = [10, 11, 12]
-    23:36:27.32 .................. len(heights) = 3
-    23:36:27.32   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:36:27.32   73 |         for album in albums:
-    23:36:27.32   80 |         exitht = heights[-1] + 2
-    23:36:27.32 .............. exitht = 14
-    23:36:27.32 .............. type(exitht) = <class 'int'>
-    23:36:27.32   81 |         print(
-    23:36:27.32   82 |             term.move_xy(wdth, exitht)
-    23:36:27.32   83 |             + "Press 'e' to exit after choosing. Press 'q' to exit this screen."
-    23:36:27.32   82 |             term.move_xy(wdth, exitht)
-    23:36:27.32   81 |         print(
-    23:36:27.32   87 |         inpt = ""
-    23:36:27.32 .............. inpt = ''
-    23:36:27.32 .............. type(inpt) = <class 'str'>
-    23:36:27.32   89 |         while inpt.lower() != "q":
-    23:36:27.32   91 |             inpt = term.inkey()
-    23:36:28.67 .................. inpt = '0'
-    23:36:28.67 .................. type(inpt) = <class 'blessed.keyboard.Keystroke'>
-    23:36:28.67   97 |             if inpt != "e":
-    23:36:28.67   99 |                 choicelst.append(str(inpt))
-    23:36:28.67 ...................... choicelst = ['0']
-    23:36:28.67 ...................... len(choicelst) = 1
-    23:36:28.67  102 |                 chcstr = "".join(choicelst)
-    23:36:28.67 ...................... chcstr = '0'
-    23:36:28.67 ...................... type(chcstr) = <class 'str'>
-    23:36:28.67  105 |                 if chcstr:
-    23:36:28.67  106 |                     choice = [i for f, i in enumerate(content_list) if f == int(chcstr)]
-        23:36:28.67 List comprehension:
-        23:36:28.67  106 |                     choice = [i for f, i in enumerate(content_list) if f == int(chcstr)]
-        23:36:28.67 .......................... Iterating over <enumerate object at 0x7fba9b2944f0>
-        23:36:28.67 .......................... Values of type(.0): <class 'enumerate'>
-        23:36:28.67 .......................... Values of chcstr: '0'
-        23:36:28.67 .......................... Values of type(chcstr): <class 'str'>
-        23:36:28.67 .......................... Values of f: 0, 1, 2
-        23:36:28.67 .......................... Values of type(f): <class 'int'>
-        23:36:28.67 .......................... Values of i: 'Ghosteen – Nick Cave and The Bad Seeds (Full Album Stream).mp4', 'Nick Cave & The Bad Seeds - No More Shall We Part (full album).mp4', 'Nick Cave - Tender Prey - Full Album 720p HD.mp4'
-        23:36:28.67 .......................... Values of len(i): 62, 66
-        23:36:28.67 .......................... Values of type(i): <class 'str'>
-        23:36:28.67 Result: ['Ghosteen – Nick Cave and The Bad Seeds (Full Album Stream).mp4']
-    23:36:28.67  106 |                     choice = [i for f, i in enumerate(content_list) if f == int(chcstr)]
-    23:36:28.67 .......................... choice = ['Ghosteen – Nick Cave and The Bad Seeds (Full Album Stream).mp4']
-    23:36:28.67 .......................... len(choice) = 1
-    23:36:28.67 .......................... type(choice) = <class 'list'>
-    23:36:28.67  107 |                 with open("choice.bin", "wb") as f:
-    23:36:28.67 ...................... f = <_io.BufferedWriter name='choice.bin'>
-    23:36:28.67 ...................... type(f) = <class '_io.BufferedWriter'>
-    23:36:28.67  108 |                     pickle.dump(choice, f)
-    23:36:28.67  107 |                 with open("choice.bin", "wb") as f:
-    23:36:28.67   89 |         while inpt.lower() != "q":
-    23:36:28.67   91 |             inpt = term.inkey()
-    23:36:29.20 .................. inpt = 'e'
-    23:36:29.20   97 |             if inpt != "e":
-    23:36:29.20  110 |                 break
-    23:36:29.21   64 |     with term.fullscreen(), term.cbreak():
-    23:36:29.21 <<< Return value from choose: None
-23:36:29.21   33 |         album = choose(f"{music}/{artist[0]}")
-23:36:29.21 .............. album = None
-23:36:29.21 .............. type(album) = <class 'NoneType'>
-23:36:29.21   34 |         with open("choice.bin", "rb") as g:
-23:36:29.21 .............. g = <_io.BufferedReader name='choice.bin'>
-23:36:29.21 .............. type(g) = <class '_io.BufferedReader'>
-23:36:29.21   35 |             album = pickle.load(g)
-23:36:29.21 .................. album = ['Ghosteen – Nick Cave and The Bad Seeds (Full Album Stream).mp4']
-23:36:29.21 .................. len(album) = 1
-23:36:29.21 .................. type(album) = <class 'list'>
-23:36:29.21   36 |             player(f"{music}/{artist[0]}/{album[0]}")
-    23:36:29.21 >>> Call to player in File "/home/mic/python/player/player/choose/play.py", line 20
-    23:36:29.21 ...... song = '/home/mic/python/yt_player/yt_player/music/nick_...ck Cave and The Bad Seeds (Full Album Stream).mp4'
-    23:36:29.21 ...... len(song) = 115
-    23:36:29.21 ...... type(song) = <class 'str'>
-    23:36:29.21   20 | def player(song):
-    23:36:29.21   30 |     term = Terminal()
-    23:36:29.21 .......... term = <blessed.terminal.Terminal object at 0x7fba9b5cf410>
-    23:36:29.21 .......... term.shape = ''
-    23:36:29.21 .......... term.dtype = ''
-    23:36:29.21 .......... type(term) = <class 'blessed.terminal.Terminal'>
-    23:36:29.21   31 |     wdth = int(term.width / 4)
-    23:36:29.21 .......... wdth = 42
-    23:36:29.21 .......... type(wdth) = <class 'int'>
-    23:36:29.21   32 |     ht = int(term.height / 2)
-    23:36:29.21 .......... ht = 14
-    23:36:29.21 .......... type(ht) = <class 'int'>
-    23:36:29.21   33 |     title = """
-    23:36:29.21 .......... title = '\n            ###########################\n       ...         ###########################\n            '
-    23:36:29.21 .......... len(title) = 133
-    23:36:29.21 .......... type(title) = <class 'str'>
-    23:36:29.21   39 |     with term.fullscreen(), term.cbreak():
-    23:36:29.21   40 |         print(term.move + term.black_on_peachpuff + term.bold + term.clear, end="")
-    23:36:29.21   41 |         sound = AudioSegment.from_file(song)
-    23:36:33.14 .............. sound = <pydub.audio_segment.AudioSegment object at 0x7fba9b5cf8d0>
-    23:36:33.14 .............. len(sound) = 4336675
-    23:36:33.14 .............. type(sound) = <class 'pydub.audio_segment.AudioSegment'>
-    23:36:33.14   43 |         t = threading.Thread(target=play, args=(sound,))
-    23:36:33.14 .............. t = <Thread(Thread-1 (play), initial)>
-    23:36:33.14 .............. type(t) = <class 'threading.Thread'>
-    23:36:33.14   44 |         print(term.nove_xy(wdth, ht) + title)
-    23:36:33.14   45 |         t.start()
-    23:36:33.14 .............. t = <Thread(Thread-1 (play), started 140439442609856)>
-    23:36:33.14   46 |         dur = sound.duration_seconds
-    23:36:33.14 .............. dur = 4336.674829931972
-    23:36:33.14 .............. type(dur) = <class 'float'>
-    23:36:33.14   49 |         for _ in tqdm(
-    23:36:33.14   50 |             range(int(dur)),
-    23:36:33.14   51 |             bar_format="{desc}: {percentage:.0f}%|{bar} | {elapsed}<{remaining}",
-    23:36:33.14   49 |         for _ in tqdm(
-    23:36:33.15 .............. _ = 0
-    23:36:33.15 .............. type(_) = <class 'int'>
-    23:36:33.15   53 |             sleep(1)
-    23:36:34.15   49 |         for _ in tqdm(
-    23:36:34.15 .............. _ = 1
-    23:36:34.15   53 |             sleep(1)
-    23:36:35.15   49 |         for _ in tqdm(
-    23:36:35.16 .............. _ = 2
-    23:36:35.16   53 |             sleep(1)
-    23:36:36.16   49 |         for _ in tqdm(
-    23:36:36.16 .............. _ = 3
-    23:36:36.16   53 |             sleep(1)
-    23:36:37.16   49 |         for _ in tqdm(
-    23:36:37.16 .............. _ = 4
-    23:36:37.16   53 |             sleep(1)
-    23:36:38.16   49 |         for _ in tqdm(
-    23:36:38.17 .............. _ = 5
-    23:36:38.17   53 |             sleep(1)
-    23:36:39.17   49 |         for _ in tqdm(
-    23:36:39.17 .............. _ = 6
-    23:36:39.17   53 |             sleep(1)
-    23:36:40.17   49 |         for _ in tqdm(
-    23:36:40.17 .............. _ = 7
-    23:36:40.17   53 |             sleep(1)
-    23:36:41.17   49 |         for _ in tqdm(
-    23:36:41.18 .............. _ = 8
-    23:36:41.18   53 |             sleep(1)
-    23:36:41.56 !!! KeyboardInterrupt
-    23:36:41.56 !!! When calling: sleep(1)
-    23:36:41.56   39 |     with term.fullscreen(), term.cbreak():
-    23:36:41.56   39 |     with term.fullscreen(), term.cbreak():
-    23:36:41.56 !!! Call ended by exception
-23:36:41.56   36 |             player(f"{music}/{artist[0]}/{album[0]}")
-23:36:41.57 !!! KeyboardInterrupt
-23:36:41.57 !!! When calling: player(f"{music}/{artist[0]}/{album[0]}")
-23:36:41.57   34 |         with open("choice.bin", "rb") as g:
-23:36:41.57 !!! Call ended by exception
+00:34:33.68 >>> Call to main in File "/home/mic/python/player/player/choose/main.py", line 23
+00:34:33.68   23 | def main():
+00:34:33.68   25 |     music = "/home/mic/python/yt_player/yt_player/music"
+00:34:33.68 .......... music = '/home/mic/python/yt_player/yt_player/music'
+00:34:33.68 .......... type(music) = <class 'str'>
+00:34:33.68   27 |     choose(music)
+    00:34:33.68 >>> Call to choose in File "/home/mic/python/player/player/choose/choose.py", line 22
+    00:34:33.68 ...... content = '/home/mic/python/yt_player/yt_player/music'
+    00:34:33.68 ...... type(content) = <class 'str'>
+    00:34:33.68   22 | def choose(content):
+    00:34:33.68   26 |     content_list = os.listdir(content)
+    00:34:33.68 .......... content_list = ['porridge_radio', 'planning_for_a_burial', 'nick_cave', ..., 'songs:_ohia', 'viagra_boys', 'alt-j']
+    00:34:33.68 .......... len(content_list) = 20
+    00:34:33.68 .......... type(content_list) = <class 'list'>
+    00:34:33.68   28 |     longest = len(max(content_list))
+    00:34:33.68 .......... longest = 8
+    00:34:33.68 .......... type(longest) = <class 'int'>
+    00:34:33.68   29 |     choicelst = []
+    00:34:33.68 .......... type(choicelst) = <class 'list'>
+    00:34:33.68   31 |     if content.endswith("music"):
+    00:34:33.68   32 |         title = "CHOOSE AN ARTIST"
+    00:34:33.68 .............. title = 'CHOOSE AN ARTIST'
+    00:34:33.68 .............. type(title) = <class 'str'>
+    00:34:33.68   36 |     heights = []
+    00:34:33.68 .......... type(heights) = <class 'list'>
+    00:34:33.68   38 |     term = Terminal()
+    00:34:33.70 .......... term = <blessed.terminal.Terminal object at 0x7f03787f3fd0>
+    00:34:33.70 .......... term.shape = ''
+    00:34:33.70 .......... term.dtype = ''
+    00:34:33.70 .......... type(term) = <class 'blessed.terminal.Terminal'>
+    00:34:33.70   43 |     wdth = int(term.width / 4)
+    00:34:33.70 .......... wdth = 42
+    00:34:33.70 .......... type(wdth) = <class 'int'>
+    00:34:33.70   49 |     ht = int((term.height - (len(content_list) + 4)) / 2)
+    00:34:33.70 .......... ht = 1
+    00:34:33.70 .......... type(ht) = <class 'int'>
+    00:34:33.70   53 |     twdth = wdth + int(longest / 2)
+    00:34:33.70 .......... twdth = 46
+    00:34:33.70 .......... type(twdth) = <class 'int'>
+    00:34:33.70   58 |     albums = [[f, str(f) + " - " + "".join(i)] for f, i in enumerate(content_list)]
+        00:34:33.70 List comprehension:
+        00:34:33.70   58 |     albums = [[f, str(f) + " - " + "".join(i)] for f, i in enumerate(content_list)]
+        00:34:33.70 .......... Iterating over <enumerate object at 0x7f036b0344a0>
+        00:34:33.70 .......... Values of type(.0): <class 'enumerate'>
+        00:34:33.70 .......... Values of f: 0, 1, 2, 3, 4, ..., 15, 16, 17, 18, 19
+        00:34:33.70 .......... Values of type(f): <class 'int'>
+        00:34:33.70 .......... Values of i: 'porridge_radio', 'planning_for_a_burial', 'nick_cave', 'have_a_nice_life', 'son_house', ..., 'fontaines_dc', 'deluge', 'songs:_ohia', 'viagra_boys', 'alt-j'
+        00:34:33.70 .......... Values of type(i): <class 'str'>
+        00:34:33.70 Result: [[0, '0 - porridge_radio'], [1, '1 - planning_for_a_burial'], [2, '2 - nick_cave'], ..., [17, '17 - songs:_ohia'], [18, '18 - viagra_boys'], [19, '19 - alt-j']]
+    00:34:33.70   58 |     albums = [[f, str(f) + " - " + "".join(i)] for f, i in enumerate(content_list)]
+    00:34:33.70 .......... albums = [[0, '0 - porridge_radio'], [1, '1 - planning_for_a_burial'], [2, '2 - nick_cave'], ..., [17, '17 - songs:_ohia'], [18, '18 - viagra_boys'], [19, '19 - alt-j']]
+    00:34:33.70 .......... len(albums) = 20
+    00:34:33.70 .......... type(albums) = <class 'list'>
+    00:34:33.70   64 |     with term.fullscreen(), term.cbreak():
+    00:34:33.70   66 |         print(term.move + term.black_on_peachpuff + term.bold + term.clear, end="")
+    00:34:33.70   69 |         print(term.move_xy(twdth, (ht - 2)) + title)
+    00:34:33.70   73 |         for album in albums:
+    00:34:33.70 .............. album = [0, '0 - porridge_radio']
+    00:34:33.70 .............. len(album) = 2
+    00:34:33.70 .............. type(album) = <class 'list'>
+    00:34:33.70   74 |             hght = ht + album[0]
+    00:34:33.70 .................. hght = 1
+    00:34:33.70 .................. type(hght) = <class 'int'>
+    00:34:33.70   75 |             heights.append(hght)
+    00:34:33.70 .................. heights = [1]
+    00:34:33.70 .................. len(heights) = 1
+    00:34:33.70   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    00:34:33.70   73 |         for album in albums:
+    00:34:33.70 .............. album = [1, '1 - planning_for_a_burial']
+    00:34:33.70   74 |             hght = ht + album[0]
+    00:34:33.70 .................. hght = 2
+    00:34:33.70   75 |             heights.append(hght)
+    00:34:33.70 .................. heights = [1, 2]
+    00:34:33.70 .................. len(heights) = 2
+    00:34:33.70   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    00:34:33.70   73 |         for album in albums:
+    00:34:33.70 .............. album = [2, '2 - nick_cave']
+    00:34:33.70   74 |             hght = ht + album[0]
+    00:34:33.70 .................. hght = 3
+    00:34:33.70   75 |             heights.append(hght)
+    00:34:33.70 .................. heights = [1, 2, 3]
+    00:34:33.70 .................. len(heights) = 3
+    00:34:33.70   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    00:34:33.70   73 |         for album in albums:
+    00:34:33.70 .............. album = [3, '3 - have_a_nice_life']
+    00:34:33.70   74 |             hght = ht + album[0]
+    00:34:33.70 .................. hght = 4
+    00:34:33.70   75 |             heights.append(hght)
+    00:34:33.70 .................. heights = [1, 2, 3, 4]
+    00:34:33.70 .................. len(heights) = 4
+    00:34:33.70   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    00:34:33.71   73 |         for album in albums:
+    00:34:33.71 .............. album = [4, '4 - son_house']
+    00:34:33.71   74 |             hght = ht + album[0]
+    00:34:33.71 .................. hght = 5
+    00:34:33.71   75 |             heights.append(hght)
+    00:34:33.71 .................. heights = [1, 2, 3, 4, 5]
+    00:34:33.71 .................. len(heights) = 5
+    00:34:33.71   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    00:34:33.71   73 |         for album in albums:
+    00:34:33.71 .............. album = [5, '5 - gnaw_their_tongues_full_album']
+    00:34:33.71   74 |             hght = ht + album[0]
+    00:34:33.71 .................. hght = 6
+    00:34:33.71   75 |             heights.append(hght)
+    00:34:33.71 .................. heights = [1, 2, 3, 4, 5, 6]
+    00:34:33.71 .................. len(heights) = 6
+    00:34:33.71   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    00:34:33.71   73 |         for album in albums:
+    00:34:33.71 .............. album = [6, '6 - giles_corey_full_album']
+    00:34:33.71   74 |             hght = ht + album[0]
+    00:34:33.71 .................. hght = 7
+    00:34:33.71   75 |             heights.append(hght)
+    00:34:33.71 .................. heights = [1, 2, 3, 4, 5, 6, 7]
+    00:34:33.71 .................. len(heights) = 7
+    00:34:33.71   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    00:34:33.71   73 |         for album in albums:
+    00:34:33.71 .............. album = [7, '7 - townes_van_zandt']
+    00:34:33.71   74 |             hght = ht + album[0]
+    00:34:33.71 .................. hght = 8
+    00:34:33.71   75 |             heights.append(hght)
+    00:34:33.71 .................. heights = [1, 2, 3, 4, 5, 6, 7, 8]
+    00:34:33.71 .................. len(heights) = 8
+    00:34:33.71   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    00:34:33.71   73 |         for album in albums:
+    00:34:33.71 .............. album = [8, '8 - Ufomammut']
+    00:34:33.71   74 |             hght = ht + album[0]
+    00:34:33.71 .................. hght = 9
+    00:34:33.71   75 |             heights.append(hght)
+    00:34:33.71 .................. heights = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    00:34:33.71 .................. len(heights) = 9
+    00:34:33.71   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    00:34:33.71   73 |         for album in albums:
+    00:34:33.71 .............. album = [9, '9 - wet_legh']
+    00:34:33.71   74 |             hght = ht + album[0]
+    00:34:33.71 .................. hght = 10
+    00:34:33.71   75 |             heights.append(hght)
+    00:34:33.71 .................. heights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    00:34:33.71 .................. len(heights) = 10
+    00:34:33.71   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    00:34:33.71   73 |         for album in albums:
+    00:34:33.71 .............. album = [10, '10 - have_a_nice_life_full_album']
+    00:34:33.71   74 |             hght = ht + album[0]
+    00:34:33.71 .................. hght = 11
+    00:34:33.71   75 |             heights.append(hght)
+    00:34:33.71 .................. heights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    00:34:33.71 .................. len(heights) = 11
+    00:34:33.71   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    00:34:33.71   73 |         for album in albums:
+    00:34:33.71 .............. album = [11, '11 - wet_leg']
+    00:34:33.71   74 |             hght = ht + album[0]
+    00:34:33.71 .................. hght = 12
+    00:34:33.71   75 |             heights.append(hght)
+    00:34:33.71 .................. heights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    00:34:33.71 .................. len(heights) = 12
+    00:34:33.71   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    00:34:33.71   73 |         for album in albums:
+    00:34:33.71 .............. album = [12, '12 - king_hannah']
+    00:34:33.71   74 |             hght = ht + album[0]
+    00:34:33.71 .................. hght = 13
+    00:34:33.71   75 |             heights.append(hght)
+    00:34:33.71 .................. heights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    00:34:33.71 .................. len(heights) = 13
+    00:34:33.71   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    00:34:33.72   73 |         for album in albums:
+    00:34:33.72 .............. album = [13, '13 - soccer_mommy']
+    00:34:33.72   74 |             hght = ht + album[0]
+    00:34:33.72 .................. hght = 14
+    00:34:33.72   75 |             heights.append(hght)
+    00:34:33.72 .................. heights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+    00:34:33.72 .................. len(heights) = 14
+    00:34:33.72   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    00:34:33.72   73 |         for album in albums:
+    00:34:33.72 .............. album = [14, '14 - black_wing']
+    00:34:33.72   74 |             hght = ht + album[0]
+    00:34:33.72 .................. hght = 15
+    00:34:33.72   75 |             heights.append(hght)
+    00:34:33.72 .................. heights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    00:34:33.72 .................. len(heights) = 15
+    00:34:33.72   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    00:34:33.72   73 |         for album in albums:
+    00:34:33.72 .............. album = [15, '15 - fontaines_dc']
+    00:34:33.72   74 |             hght = ht + album[0]
+    00:34:33.72 .................. hght = 16
+    00:34:33.72   75 |             heights.append(hght)
+    00:34:33.72 .................. heights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+    00:34:33.72 .................. len(heights) = 16
+    00:34:33.72   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    00:34:33.72   73 |         for album in albums:
+    00:34:33.72 .............. album = [16, '16 - deluge']
+    00:34:33.72   74 |             hght = ht + album[0]
+    00:34:33.72 .................. hght = 17
+    00:34:33.72   75 |             heights.append(hght)
+    00:34:33.72 .................. heights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+    00:34:33.72 .................. len(heights) = 17
+    00:34:33.72   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    00:34:33.72   73 |         for album in albums:
+    00:34:33.72 .............. album = [17, '17 - songs:_ohia']
+    00:34:33.72   74 |             hght = ht + album[0]
+    00:34:33.72 .................. hght = 18
+    00:34:33.72   75 |             heights.append(hght)
+    00:34:33.72 .................. heights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+    00:34:33.72 .................. len(heights) = 18
+    00:34:33.72   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    00:34:33.72   73 |         for album in albums:
+    00:34:33.72 .............. album = [18, '18 - viagra_boys']
+    00:34:33.72   74 |             hght = ht + album[0]
+    00:34:33.72 .................. hght = 19
+    00:34:33.72   75 |             heights.append(hght)
+    00:34:33.72 .................. heights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+    00:34:33.72 .................. len(heights) = 19
+    00:34:33.72   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    00:34:33.72   73 |         for album in albums:
+    00:34:33.72 .............. album = [19, '19 - alt-j']
+    00:34:33.72   74 |             hght = ht + album[0]
+    00:34:33.72 .................. hght = 20
+    00:34:33.72   75 |             heights.append(hght)
+    00:34:33.72 .................. heights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+    00:34:33.72 .................. len(heights) = 20
+    00:34:33.72   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    00:34:33.72   73 |         for album in albums:
+    00:34:33.72   80 |         exitht = heights[-1] + 2
+    00:34:33.72 .............. exitht = 22
+    00:34:33.72 .............. type(exitht) = <class 'int'>
+    00:34:33.72   81 |         print(term.move_xy(wdth, exitht) + "Press 'e' to exit after choosing. Press 'q' to exit this screen.")
+    00:34:33.72   84 |         inpt = ""
+    00:34:33.73 .............. inpt = ''
+    00:34:33.73 .............. type(inpt) = <class 'str'>
+    00:34:33.73   86 |         while inpt.lower() != "q":
+    00:34:33.73   88 |             inpt = term.inkey()
+    00:34:35.21 .................. inpt = '0'
+    00:34:35.21 .................. type(inpt) = <class 'blessed.keyboard.Keystroke'>
+    00:34:35.21   94 |             if inpt != "e":
+    00:34:35.21   96 |                 choicelst.append(str(inpt))
+    00:34:35.22 ...................... choicelst = ['0']
+    00:34:35.22 ...................... len(choicelst) = 1
+    00:34:35.22   99 |                 chcstr = "".join(choicelst)
+    00:34:35.22 ...................... chcstr = '0'
+    00:34:35.22 ...................... type(chcstr) = <class 'str'>
+    00:34:35.22  102 |                 if chcstr:
+    00:34:35.22  103 |                     choice = [i for f, i in enumerate(content_list) if f == int(chcstr)]
+        00:34:35.22 List comprehension:
+        00:34:35.22  103 |                     choice = [i for f, i in enumerate(content_list) if f == int(chcstr)]
+        00:34:35.22 .......................... Iterating over <enumerate object at 0x7f036b0359e0>
+        00:34:35.22 .......................... Values of type(.0): <class 'enumerate'>
+        00:34:35.22 .......................... Values of chcstr: '0'
+        00:34:35.22 .......................... Values of type(chcstr): <class 'str'>
+        00:34:35.22 .......................... Values of f: 0, 1, 2, 3, 4, ..., 15, 16, 17, 18, 19
+        00:34:35.22 .......................... Values of type(f): <class 'int'>
+        00:34:35.22 .......................... Values of i: 'porridge_radio', 'planning_for_a_burial', 'nick_cave', 'have_a_nice_life', 'son_house', ..., 'fontaines_dc', 'deluge', 'songs:_ohia', 'viagra_boys', 'alt-j'
+        00:34:35.22 .......................... Values of type(i): <class 'str'>
+        00:34:35.22 Result: ['porridge_radio']
+    00:34:35.22  103 |                     choice = [i for f, i in enumerate(content_list) if f == int(chcstr)]
+    00:34:35.22 .......................... choice = ['porridge_radio']
+    00:34:35.22 .......................... len(choice) = 1
+    00:34:35.22 .......................... type(choice) = <class 'list'>
+    00:34:35.22  104 |                 with open("choice.bin", "wb") as f:
+    00:34:35.22 ...................... f = <_io.BufferedWriter name='choice.bin'>
+    00:34:35.22 ...................... type(f) = <class '_io.BufferedWriter'>
+    00:34:35.22  105 |                     pickle.dump(choice, f)
+    00:34:35.22  104 |                 with open("choice.bin", "wb") as f:
+    00:34:35.22   86 |         while inpt.lower() != "q":
+    00:34:35.22   88 |             inpt = term.inkey()
+    00:34:35.58 .................. inpt = 'e'
+    00:34:35.58   94 |             if inpt != "e":
+    00:34:35.58  107 |                 break
+    00:34:35.58   64 |     with term.fullscreen(), term.cbreak():
+    00:34:35.59 <<< Return value from choose: None
+00:34:35.59   27 |     choose(music)
+00:34:35.59   28 |     bins = os.listdir(os.getcwd())
+00:34:35.59 .......... bins = ['choice.bin', 'logs', 'play1.py', 'play.py', 'apagar.py', 'main.py', 'choose.py']
+00:34:35.59 .......... len(bins) = 7
+00:34:35.59 .......... type(bins) = <class 'list'>
+00:34:35.59   30 |     if "choice.bin" in bins:
+00:34:35.59   31 |         with open("choice.bin", "rb") as f:
+00:34:35.59 .............. f = <_io.BufferedReader name='choice.bin'>
+00:34:35.59 .............. type(f) = <class '_io.BufferedReader'>
+00:34:35.59   32 |             artist = pickle.load(f)
+00:34:35.59 .................. artist = ['porridge_radio']
+00:34:35.59 .................. len(artist) = 1
+00:34:35.59 .................. type(artist) = <class 'list'>
+00:34:35.59   31 |         with open("choice.bin", "rb") as f:
+00:34:35.59   33 |         album = choose(f"{music}/{artist[0]}")
+    00:34:35.59 >>> Call to choose in File "/home/mic/python/player/player/choose/choose.py", line 22
+    00:34:35.59 ...... content = '/home/mic/python/yt_player/yt_player/music/porridge_radio'
+    00:34:35.59 ...... len(content) = 57
+    00:34:35.59 ...... type(content) = <class 'str'>
+    00:34:35.59   22 | def choose(content):
+    00:34:35.59   26 |     content_list = os.listdir(content)
+    00:34:35.59 .......... content_list = ['Porridge Radio - Sweet (Official Video).mp4']
+    00:34:35.59 .......... len(content_list) = 1
+    00:34:35.59 .......... type(content_list) = <class 'list'>
+    00:34:35.59   28 |     longest = len(max(content_list))
+    00:34:35.59 .......... longest = 43
+    00:34:35.59 .......... type(longest) = <class 'int'>
+    00:34:35.59   29 |     choicelst = []
+    00:34:35.59 .......... type(choicelst) = <class 'list'>
+    00:34:35.59   31 |     if content.endswith("music"):
+    00:34:35.59   34 |         title = "CHOOSE AN ALBUM"
+    00:34:35.59 .............. title = 'CHOOSE AN ALBUM'
+    00:34:35.59 .............. type(title) = <class 'str'>
+    00:34:35.59   36 |     heights = []
+    00:34:35.59 .......... type(heights) = <class 'list'>
+    00:34:35.59   38 |     term = Terminal()
+    00:34:35.61 .......... term = <blessed.terminal.Terminal object at 0x7f0376409c50>
+    00:34:35.61 .......... term.shape = ''
+    00:34:35.61 .......... term.dtype = ''
+    00:34:35.61 .......... type(term) = <class 'blessed.terminal.Terminal'>
+    00:34:35.61   43 |     wdth = int(term.width / 4)
+    00:34:35.61 .......... wdth = 42
+    00:34:35.61 .......... type(wdth) = <class 'int'>
+    00:34:35.61   49 |     ht = int((term.height - (len(content_list) + 4)) / 2)
+    00:34:35.61 .......... ht = 10
+    00:34:35.61 .......... type(ht) = <class 'int'>
+    00:34:35.61   53 |     twdth = wdth + int(longest / 2)
+    00:34:35.61 .......... twdth = 63
+    00:34:35.61 .......... type(twdth) = <class 'int'>
+    00:34:35.61   58 |     albums = [[f, str(f) + " - " + "".join(i)] for f, i in enumerate(content_list)]
+        00:34:35.61 List comprehension:
+        00:34:35.61   58 |     albums = [[f, str(f) + " - " + "".join(i)] for f, i in enumerate(content_list)]
+        00:34:35.61 .......... Iterating over <enumerate object at 0x7f036bc15800>
+        00:34:35.61 .......... Values of type(.0): <class 'enumerate'>
+        00:34:35.61 .......... Values of f: 0
+        00:34:35.61 .......... Values of type(f): <class 'int'>
+        00:34:35.61 .......... Values of i: 'Porridge Radio - Sweet (Official Video).mp4'
+        00:34:35.61 .......... Values of type(i): <class 'str'>
+        00:34:35.61 Result: [[0, '0 - Porridge Radio - Sweet (Official Video).mp4']]
+    00:34:35.61   58 |     albums = [[f, str(f) + " - " + "".join(i)] for f, i in enumerate(content_list)]
+    00:34:35.61 .......... albums = [[0, '0 - Porridge Radio - Sweet (Official Video).mp4']]
+    00:34:35.61 .......... len(albums) = 1
+    00:34:35.61 .......... type(albums) = <class 'list'>
+    00:34:35.61   64 |     with term.fullscreen(), term.cbreak():
+    00:34:35.61   66 |         print(term.move + term.black_on_peachpuff + term.bold + term.clear, end="")
+    00:34:35.61   69 |         print(term.move_xy(twdth, (ht - 2)) + title)
+    00:34:35.61   73 |         for album in albums:
+    00:34:35.61 .............. album = [0, '0 - Porridge Radio - Sweet (Official Video).mp4']
+    00:34:35.61 .............. len(album) = 2
+    00:34:35.61 .............. type(album) = <class 'list'>
+    00:34:35.61   74 |             hght = ht + album[0]
+    00:34:35.61 .................. hght = 10
+    00:34:35.61 .................. type(hght) = <class 'int'>
+    00:34:35.61   75 |             heights.append(hght)
+    00:34:35.62 .................. heights = [10]
+    00:34:35.62 .................. len(heights) = 1
+    00:34:35.62   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    00:34:35.62   73 |         for album in albums:
+    00:34:35.62   80 |         exitht = heights[-1] + 2
+    00:34:35.62 .............. exitht = 12
+    00:34:35.62 .............. type(exitht) = <class 'int'>
+    00:34:35.62   81 |         print(term.move_xy(wdth, exitht) + "Press 'e' to exit after choosing. Press 'q' to exit this screen.")
+    00:34:35.62   84 |         inpt = ""
+    00:34:35.62 .............. inpt = ''
+    00:34:35.62 .............. type(inpt) = <class 'str'>
+    00:34:35.62   86 |         while inpt.lower() != "q":
+    00:34:35.62   88 |             inpt = term.inkey()
+    00:34:36.78 .................. inpt = '0'
+    00:34:36.78 .................. type(inpt) = <class 'blessed.keyboard.Keystroke'>
+    00:34:36.78   94 |             if inpt != "e":
+    00:34:36.78   96 |                 choicelst.append(str(inpt))
+    00:34:36.78 ...................... choicelst = ['0']
+    00:34:36.78 ...................... len(choicelst) = 1
+    00:34:36.78   99 |                 chcstr = "".join(choicelst)
+    00:34:36.78 ...................... chcstr = '0'
+    00:34:36.78 ...................... type(chcstr) = <class 'str'>
+    00:34:36.78  102 |                 if chcstr:
+    00:34:36.79  103 |                     choice = [i for f, i in enumerate(content_list) if f == int(chcstr)]
+        00:34:36.79 List comprehension:
+        00:34:36.79  103 |                     choice = [i for f, i in enumerate(content_list) if f == int(chcstr)]
+        00:34:36.79 .......................... Iterating over <enumerate object at 0x7f036b036a20>
+        00:34:36.79 .......................... Values of type(.0): <class 'enumerate'>
+        00:34:36.79 .......................... Values of chcstr: '0'
+        00:34:36.79 .......................... Values of type(chcstr): <class 'str'>
+        00:34:36.79 .......................... Values of f: 0
+        00:34:36.79 .......................... Values of type(f): <class 'int'>
+        00:34:36.79 .......................... Values of i: 'Porridge Radio - Sweet (Official Video).mp4'
+        00:34:36.79 .......................... Values of type(i): <class 'str'>
+        00:34:36.79 Result: ['Porridge Radio - Sweet (Official Video).mp4']
+    00:34:36.79  103 |                     choice = [i for f, i in enumerate(content_list) if f == int(chcstr)]
+    00:34:36.79 .......................... choice = ['Porridge Radio - Sweet (Official Video).mp4']
+    00:34:36.79 .......................... len(choice) = 1
+    00:34:36.79 .......................... type(choice) = <class 'list'>
+    00:34:36.79  104 |                 with open("choice.bin", "wb") as f:
+    00:34:36.79 ...................... f = <_io.BufferedWriter name='choice.bin'>
+    00:34:36.79 ...................... type(f) = <class '_io.BufferedWriter'>
+    00:34:36.79  105 |                     pickle.dump(choice, f)
+    00:34:36.79  104 |                 with open("choice.bin", "wb") as f:
+    00:34:36.79   86 |         while inpt.lower() != "q":
+    00:34:36.79   88 |             inpt = term.inkey()
+    00:34:37.08 .................. inpt = 'e'
+    00:34:37.08   94 |             if inpt != "e":
+    00:34:37.08  107 |                 break
+    00:34:37.08   64 |     with term.fullscreen(), term.cbreak():
+    00:34:37.08 <<< Return value from choose: None
+00:34:37.08   33 |         album = choose(f"{music}/{artist[0]}")
+00:34:37.08 .............. album = None
+00:34:37.08 .............. type(album) = <class 'NoneType'>
+00:34:37.08   34 |         with open("choice.bin", "rb") as g:
+00:34:37.08 .............. g = <_io.BufferedReader name='choice.bin'>
+00:34:37.08 .............. type(g) = <class '_io.BufferedReader'>
+00:34:37.08   35 |             album = pickle.load(g)
+00:34:37.08 .................. album = ['Porridge Radio - Sweet (Official Video).mp4']
+00:34:37.08 .................. len(album) = 1
+00:34:37.08 .................. type(album) = <class 'list'>
+00:34:37.08   36 |             player(f"{music}/{artist[0]}/{album[0]}")
+    00:34:37.09 >>> Call to player in File "/home/mic/python/player/player/choose/play1.py", line 20
+    00:34:37.09 ...... song = '/home/mic/python/yt_player/yt_player/music/porri...radio/Porridge Radio - Sweet (Official Video).mp4'
+    00:34:37.09 ...... len(song) = 101
+    00:34:37.09 ...... type(song) = <class 'str'>
+    00:34:37.09   20 | def player(song):
+    00:34:37.09   30 |     sound = AudioSegment.from_file(song)
+    00:34:37.37 .......... sound = <pydub.audio_segment.AudioSegment object at 0x7f036b076a90>
+    00:34:37.37 .......... len(sound) = 223028
+    00:34:37.37 .......... type(sound) = <class 'pydub.audio_segment.AudioSegment'>
+    00:34:37.37 <<< Return value from player: None
+00:34:37.37   36 |             player(f"{music}/{artist[0]}/{album[0]}")
+00:34:37.37   34 |         with open("choice.bin", "rb") as g:
+00:34:37.37 <<< Return value from main: None

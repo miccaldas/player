@@ -9,7 +9,7 @@ from blessed import Terminal
 from snoop import pp
 
 from choose import choose
-from play import player
+from play1 import player
 
 
 def type_watch(source, value):

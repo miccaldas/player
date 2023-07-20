@@ -4,9 +4,9 @@ from time import sleep
 
 import snoop
 from blessed import Terminal
+from progressbar import progressbar
 from pydub import AudioSegment
 from pydub.playback import play
-from tqdm import tqdm
 
 
 def type_watch(source, value):
@@ -44,12 +44,12 @@ def player(song):
         print(term.nove_xy(wdth, ht) + title)
         t.start()
         dur = sound.duration_seconds
+
         # Use underscore for when you want a for loop, but don't care about the index.
         # Suggested by Sourcery.
-        for _ in tqdm(
-            range(int(dur)),
-            bar_format="{desc}: {percentage:.0f}%|{bar} | {elapsed}<{remaining}",
-        ):
+
+        # print(term.move_xy(wdth, (ht + 6)
+        for i in progressbar(range(int(dur))):
             sleep(1)
     print("\n")
 
