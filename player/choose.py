@@ -6,7 +6,6 @@ import pickle
 
 import snoop
 
-# import subprocess
 from blessed import Terminal
 from snoop import pp
 
