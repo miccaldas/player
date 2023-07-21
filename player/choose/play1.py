@@ -3,8 +3,8 @@ import threading
 from time import sleep
 
 import snoop
+from alive_progress import alive_it
 from blessed import Terminal
-from progressbar import progressbar
 from pydub import AudioSegment
 from pydub.playback import play
 
@@ -27,7 +27,28 @@ def player(song):
     'F7' - Raises it,
     'F8' - Mutes it.
     """
-    sound = AudioSegment.from_file(song)
+    term = Terminal()
+    wdth = int(term.width / 4)
+    ht = int(term.height / 2)
+    title = """
+
+
+
+    ###########################
+    ##     MUSIC PLAYER      ##
+    ###########################
+    """
+
+    with term.fullscreen(), term.cbreak():
+        print(term.move + term.black_on_peachpuff + term.bold + term.clear, end="")
+        sound = AudioSegment.from_file(song)
+        t = threading.Thread(target=play, args=(sound,))
+        print(title)
+        t.start()
+        dur = int(sound.duration_seconds)
+
+        for i in alive_it(range(dur)):
+            print(i)
 
 
 if __name__ == "__main__":
