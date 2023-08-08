@@ -1,1134 +1,263 @@
-23:14:28.70 >>> Call to choice_collector in File "/home/mic/python/player/player/player.py", line 30
-23:14:28.70   30 | def choice_collector():
-23:14:28.70   36 |     music = "/home/mic/python/yt_player/yt_player/music"
-23:14:28.70 .......... music = '/home/mic/python/yt_player/yt_player/music'
-23:14:28.70 .......... type(music) = <class 'str'>
-23:14:28.70   42 |     choose(music)
-    23:14:28.70 >>> Call to choose in File "/home/mic/python/player/player/choose.py", line 22
-    23:14:28.70 ...... content = '/home/mic/python/yt_player/yt_player/music'
-    23:14:28.70 ...... type(content) = <class 'str'>
-    23:14:28.70   22 | def choose(content):
-    23:14:28.70   26 |     content_list = os.listdir(content)
-    23:14:28.70 .......... content_list = ['porridge_radio', 'planning_for_a_burial', 'nick_cave', ..., 'songs:_ohia', 'viagra_boys', 'alt-j']
-    23:14:28.70 .......... len(content_list) = 20
-    23:14:28.70 .......... type(content_list) = <class 'list'>
-    23:14:28.70   28 |     longest = len(max(content_list))
-    23:14:28.70 .......... longest = 8
-    23:14:28.70 .......... type(longest) = <class 'int'>
-    23:14:28.70   29 |     choicelst = []
-    23:14:28.70 .......... type(choicelst) = <class 'list'>
-    23:14:28.70   31 |     if content.endswith("music"):
-    23:14:28.70   32 |         title = "CHOOSE AN ARTIST"
-    23:14:28.70 .............. title = 'CHOOSE AN ARTIST'
-    23:14:28.70 .............. type(title) = <class 'str'>
-    23:14:28.70   36 |     heights = []
-    23:14:28.70 .......... type(heights) = <class 'list'>
-    23:14:28.70   38 |     term = Terminal()
-    23:14:28.72 .......... term = <blessed.terminal.Terminal object at 0x7f1376bef590>
-    23:14:28.72 .......... term.shape = ''
-    23:14:28.72 .......... term.dtype = ''
-    23:14:28.72 .......... type(term) = <class 'blessed.terminal.Terminal'>
-    23:14:28.72   43 |     wdth = int(term.width / 4)
-    23:14:28.72 .......... wdth = 42
-    23:14:28.72 .......... type(wdth) = <class 'int'>
-    23:14:28.72   49 |     ht = int((term.height - (len(content_list) + 4)) / 2)
-    23:14:28.72 .......... ht = 1
-    23:14:28.72 .......... type(ht) = <class 'int'>
-    23:14:28.72   53 |     twdth = wdth + int(longest / 2)
-    23:14:28.72 .......... twdth = 46
-    23:14:28.72 .......... type(twdth) = <class 'int'>
-    23:14:28.72   58 |     albums = [[f, str(f) + " - " + "".join(i)] for f, i in enumerate(content_list)]
-        23:14:28.72 List comprehension:
-        23:14:28.72   58 |     albums = [[f, str(f) + " - " + "".join(i)] for f, i in enumerate(content_list)]
-        23:14:28.72 .......... Iterating over <enumerate object at 0x7f1376cc4f40>
-        23:14:28.72 .......... Values of type(.0): <class 'enumerate'>
-        23:14:28.72 .......... Values of f: 0, 1, 2, 3, 4, ..., 15, 16, 17, 18, 19
-        23:14:28.72 .......... Values of type(f): <class 'int'>
-        23:14:28.72 .......... Values of i: 'porridge_radio', 'planning_for_a_burial', 'nick_cave', 'have_a_nice_life', 'son_house', ..., 'fontaines_dc', 'deluge', 'songs:_ohia', 'viagra_boys', 'alt-j'
-        23:14:28.72 .......... Values of type(i): <class 'str'>
-        23:14:28.72 Result: [[0, '0 - porridge_radio'], [1, '1 - planning_for_a_burial'], [2, '2 - nick_cave'], ..., [17, '17 - songs:_ohia'], [18, '18 - viagra_boys'], [19, '19 - alt-j']]
-    23:14:28.72   58 |     albums = [[f, str(f) + " - " + "".join(i)] for f, i in enumerate(content_list)]
-    23:14:28.72 .......... albums = [[0, '0 - porridge_radio'], [1, '1 - planning_for_a_burial'], [2, '2 - nick_cave'], ..., [17, '17 - songs:_ohia'], [18, '18 - viagra_boys'], [19, '19 - alt-j']]
-    23:14:28.72 .......... len(albums) = 20
-    23:14:28.72 .......... type(albums) = <class 'list'>
-    23:14:28.72   64 |     with term.fullscreen(), term.cbreak():
-    23:14:28.72   66 |         print(term.move + term.black_on_peachpuff + term.bold + term.clear, end="")
-    23:14:28.72   69 |         print(term.move_xy(twdth, (ht - 2)) + title)
-    23:14:28.72   73 |         for album in albums:
-    23:14:28.72 .............. album = [0, '0 - porridge_radio']
-    23:14:28.72 .............. len(album) = 2
-    23:14:28.72 .............. type(album) = <class 'list'>
-    23:14:28.72   74 |             hght = ht + album[0]
-    23:14:28.72 .................. hght = 1
-    23:14:28.72 .................. type(hght) = <class 'int'>
-    23:14:28.72   75 |             heights.append(hght)
-    23:14:28.72 .................. heights = [1]
-    23:14:28.72 .................. len(heights) = 1
-    23:14:28.72   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:14:28.73   73 |         for album in albums:
-    23:14:28.73 .............. album = [1, '1 - planning_for_a_burial']
-    23:14:28.73   74 |             hght = ht + album[0]
-    23:14:28.73 .................. hght = 2
-    23:14:28.73   75 |             heights.append(hght)
-    23:14:28.73 .................. heights = [1, 2]
-    23:14:28.73 .................. len(heights) = 2
-    23:14:28.73   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:14:28.73   73 |         for album in albums:
-    23:14:28.73 .............. album = [2, '2 - nick_cave']
-    23:14:28.73   74 |             hght = ht + album[0]
-    23:14:28.73 .................. hght = 3
-    23:14:28.73   75 |             heights.append(hght)
-    23:14:28.73 .................. heights = [1, 2, 3]
-    23:14:28.73 .................. len(heights) = 3
-    23:14:28.73   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:14:28.73   73 |         for album in albums:
-    23:14:28.73 .............. album = [3, '3 - have_a_nice_life']
-    23:14:28.73   74 |             hght = ht + album[0]
-    23:14:28.73 .................. hght = 4
-    23:14:28.73   75 |             heights.append(hght)
-    23:14:28.73 .................. heights = [1, 2, 3, 4]
-    23:14:28.73 .................. len(heights) = 4
-    23:14:28.73   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:14:28.73   73 |         for album in albums:
-    23:14:28.73 .............. album = [4, '4 - son_house']
-    23:14:28.73   74 |             hght = ht + album[0]
-    23:14:28.73 .................. hght = 5
-    23:14:28.73   75 |             heights.append(hght)
-    23:14:28.73 .................. heights = [1, 2, 3, 4, 5]
-    23:14:28.73 .................. len(heights) = 5
-    23:14:28.73   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:14:28.73   73 |         for album in albums:
-    23:14:28.73 .............. album = [5, '5 - gnaw_their_tongues_full_album']
-    23:14:28.73   74 |             hght = ht + album[0]
-    23:14:28.73 .................. hght = 6
-    23:14:28.73   75 |             heights.append(hght)
-    23:14:28.73 .................. heights = [1, 2, 3, 4, 5, 6]
-    23:14:28.73 .................. len(heights) = 6
-    23:14:28.73   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:14:28.73   73 |         for album in albums:
-    23:14:28.73 .............. album = [6, '6 - giles_corey_full_album']
-    23:14:28.73   74 |             hght = ht + album[0]
-    23:14:28.73 .................. hght = 7
-    23:14:28.73   75 |             heights.append(hght)
-    23:14:28.73 .................. heights = [1, 2, 3, 4, 5, 6, 7]
-    23:14:28.73 .................. len(heights) = 7
-    23:14:28.73   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:14:28.73   73 |         for album in albums:
-    23:14:28.73 .............. album = [7, '7 - townes_van_zandt']
-    23:14:28.73   74 |             hght = ht + album[0]
-    23:14:28.73 .................. hght = 8
-    23:14:28.73   75 |             heights.append(hght)
-    23:14:28.73 .................. heights = [1, 2, 3, 4, 5, 6, 7, 8]
-    23:14:28.73 .................. len(heights) = 8
-    23:14:28.73   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:14:28.73   73 |         for album in albums:
-    23:14:28.73 .............. album = [8, '8 - Ufomammut']
-    23:14:28.73   74 |             hght = ht + album[0]
-    23:14:28.73 .................. hght = 9
-    23:14:28.73   75 |             heights.append(hght)
-    23:14:28.73 .................. heights = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    23:14:28.73 .................. len(heights) = 9
-    23:14:28.73   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:14:28.73   73 |         for album in albums:
-    23:14:28.73 .............. album = [9, '9 - wet_legh']
-    23:14:28.73   74 |             hght = ht + album[0]
-    23:14:28.73 .................. hght = 10
-    23:14:28.73   75 |             heights.append(hght)
-    23:14:28.74 .................. heights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    23:14:28.74 .................. len(heights) = 10
-    23:14:28.74   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:14:28.74   73 |         for album in albums:
-    23:14:28.74 .............. album = [10, '10 - have_a_nice_life_full_album']
-    23:14:28.74   74 |             hght = ht + album[0]
-    23:14:28.74 .................. hght = 11
-    23:14:28.74   75 |             heights.append(hght)
-    23:14:28.74 .................. heights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-    23:14:28.74 .................. len(heights) = 11
-    23:14:28.74   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:14:28.74   73 |         for album in albums:
-    23:14:28.74 .............. album = [11, '11 - wet_leg']
-    23:14:28.74   74 |             hght = ht + album[0]
-    23:14:28.74 .................. hght = 12
-    23:14:28.74   75 |             heights.append(hght)
-    23:14:28.74 .................. heights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-    23:14:28.74 .................. len(heights) = 12
-    23:14:28.74   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:14:28.74   73 |         for album in albums:
-    23:14:28.74 .............. album = [12, '12 - king_hannah']
-    23:14:28.74   74 |             hght = ht + album[0]
-    23:14:28.74 .................. hght = 13
-    23:14:28.74   75 |             heights.append(hght)
-    23:14:28.74 .................. heights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-    23:14:28.74 .................. len(heights) = 13
-    23:14:28.74   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:14:28.74   73 |         for album in albums:
-    23:14:28.74 .............. album = [13, '13 - soccer_mommy']
-    23:14:28.74   74 |             hght = ht + album[0]
-    23:14:28.74 .................. hght = 14
-    23:14:28.74   75 |             heights.append(hght)
-    23:14:28.74 .................. heights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-    23:14:28.74 .................. len(heights) = 14
-    23:14:28.74   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:14:28.74   73 |         for album in albums:
-    23:14:28.74 .............. album = [14, '14 - black_wing']
-    23:14:28.74   74 |             hght = ht + album[0]
-    23:14:28.74 .................. hght = 15
-    23:14:28.74   75 |             heights.append(hght)
-    23:14:28.74 .................. heights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-    23:14:28.74 .................. len(heights) = 15
-    23:14:28.74   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:14:28.74   73 |         for album in albums:
-    23:14:28.74 .............. album = [15, '15 - fontaines_dc']
-    23:14:28.74   74 |             hght = ht + album[0]
-    23:14:28.74 .................. hght = 16
-    23:14:28.74   75 |             heights.append(hght)
-    23:14:28.74 .................. heights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
-    23:14:28.74 .................. len(heights) = 16
-    23:14:28.74   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:14:28.74   73 |         for album in albums:
-    23:14:28.74 .............. album = [16, '16 - deluge']
-    23:14:28.74   74 |             hght = ht + album[0]
-    23:14:28.74 .................. hght = 17
-    23:14:28.74   75 |             heights.append(hght)
-    23:14:28.74 .................. heights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
-    23:14:28.74 .................. len(heights) = 17
-    23:14:28.74   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:14:28.74   73 |         for album in albums:
-    23:14:28.74 .............. album = [17, '17 - songs:_ohia']
-    23:14:28.74   74 |             hght = ht + album[0]
-    23:14:28.74 .................. hght = 18
-    23:14:28.74   75 |             heights.append(hght)
-    23:14:28.74 .................. heights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
-    23:14:28.74 .................. len(heights) = 18
-    23:14:28.74   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:14:28.74   73 |         for album in albums:
-    23:14:28.74 .............. album = [18, '18 - viagra_boys']
-    23:14:28.74   74 |             hght = ht + album[0]
-    23:14:28.74 .................. hght = 19
-    23:14:28.74   75 |             heights.append(hght)
-    23:14:28.74 .................. heights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
-    23:14:28.74 .................. len(heights) = 19
-    23:14:28.74   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:14:28.75   73 |         for album in albums:
-    23:14:28.75 .............. album = [19, '19 - alt-j']
-    23:14:28.75   74 |             hght = ht + album[0]
-    23:14:28.75 .................. hght = 20
-    23:14:28.75   75 |             heights.append(hght)
-    23:14:28.75 .................. heights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-    23:14:28.75 .................. len(heights) = 20
-    23:14:28.75   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:14:28.75   73 |         for album in albums:
-    23:14:28.75   80 |         exitht = heights[-1] + 2
-    23:14:28.75 .............. exitht = 22
-    23:14:28.75 .............. type(exitht) = <class 'int'>
-    23:14:28.75   81 |         print(term.move_xy(wdth, exitht) + "Press 'e' to exit after choosing. Press 'q' to exit this screen.")
-    23:14:28.75   84 |         inpt = ""
-    23:14:28.75 .............. inpt = ''
-    23:14:28.75 .............. type(inpt) = <class 'str'>
-    23:14:28.75   86 |         while inpt.lower() != "q":
-    23:14:28.75   88 |             inpt = term.inkey()
-    23:14:31.54 .................. inpt = '2'
-    23:14:31.54 .................. type(inpt) = <class 'blessed.keyboard.Keystroke'>
-    23:14:31.54   94 |             if inpt != "e":
-    23:14:31.54   96 |                 choicelst.append(str(inpt))
-    23:14:31.54 ...................... choicelst = ['2']
-    23:14:31.54 ...................... len(choicelst) = 1
-    23:14:31.54   99 |                 chcstr = "".join(choicelst)
-    23:14:31.54 ...................... chcstr = '2'
-    23:14:31.54 ...................... type(chcstr) = <class 'str'>
-    23:14:31.54  102 |                 if chcstr:
-    23:14:31.54  103 |                     choice = [i for f, i in enumerate(content_list) if f == int(chcstr)]
-        23:14:31.54 List comprehension:
-        23:14:31.54  103 |                     choice = [i for f, i in enumerate(content_list) if f == int(chcstr)]
-        23:14:31.54 .......................... Iterating over <enumerate object at 0x7f1376caabb0>
-        23:14:31.54 .......................... Values of type(.0): <class 'enumerate'>
-        23:14:31.54 .......................... Values of chcstr: '2'
-        23:14:31.54 .......................... Values of type(chcstr): <class 'str'>
-        23:14:31.54 .......................... Values of f: 0, 1, 2, 3, 4, ..., 15, 16, 17, 18, 19
-        23:14:31.54 .......................... Values of type(f): <class 'int'>
-        23:14:31.54 .......................... Values of i: 'porridge_radio', 'planning_for_a_burial', 'nick_cave', 'have_a_nice_life', 'son_house', ..., 'fontaines_dc', 'deluge', 'songs:_ohia', 'viagra_boys', 'alt-j'
-        23:14:31.54 .......................... Values of type(i): <class 'str'>
-        23:14:31.54 Result: ['nick_cave']
-    23:14:31.54  103 |                     choice = [i for f, i in enumerate(content_list) if f == int(chcstr)]
-    23:14:31.54 .......................... choice = ['nick_cave']
-    23:14:31.54 .......................... len(choice) = 1
-    23:14:31.54 .......................... type(choice) = <class 'list'>
-    23:14:31.54  104 |                 with open("choice.bin", "wb") as f:
-    23:14:31.54 ...................... f = <_io.BufferedWriter name='choice.bin'>
-    23:14:31.54 ...................... type(f) = <class '_io.BufferedWriter'>
-    23:14:31.54  105 |                     pickle.dump(choice, f)
-    23:14:31.54  104 |                 with open("choice.bin", "wb") as f:
-    23:14:31.54   86 |         while inpt.lower() != "q":
-    23:14:31.54   88 |             inpt = term.inkey()
-    23:14:31.96 .................. inpt = 'e'
-    23:14:31.96   94 |             if inpt != "e":
-    23:14:31.96  107 |                 break
-    23:14:31.96   64 |     with term.fullscreen(), term.cbreak():
-    23:14:31.97 <<< Return value from choose: None
-23:14:31.97   42 |     choose(music)
-23:14:31.97   43 |     bins = os.listdir(os.getcwd())
-23:14:31.97 .......... bins = ['choice.bin', 'logs', 'player.py', 'song.bin', '__init__.py', 'choose.py']
-23:14:31.97 .......... len(bins) = 6
-23:14:31.97 .......... type(bins) = <class 'list'>
-23:14:31.97   46 |     if "choice.bin" in bins:
-23:14:31.97   47 |         with open("choice.bin", "rb") as f:
-23:14:31.97 .............. f = <_io.BufferedReader name='choice.bin'>
-23:14:31.97 .............. type(f) = <class '_io.BufferedReader'>
-23:14:31.97   48 |             artst = pickle.load(f)
-23:14:31.97 .................. artst = ['nick_cave']
-23:14:31.97 .................. len(artst) = 1
-23:14:31.97 .................. type(artst) = <class 'list'>
-23:14:31.97   47 |         with open("choice.bin", "rb") as f:
-23:14:31.97   53 |         choose(f"{music}/{artst[0]}")
-    23:14:31.97 >>> Call to choose in File "/home/mic/python/player/player/choose.py", line 22
-    23:14:31.97 ...... content = '/home/mic/python/yt_player/yt_player/music/nick_cave'
-    23:14:31.97 ...... len(content) = 52
-    23:14:31.97 ...... type(content) = <class 'str'>
-    23:14:31.97   22 | def choose(content):
-    23:14:31.97   26 |     content_list = os.listdir(content)
-    23:14:31.97 .......... content_list = ['Ghosteen – Nick Cave and The Bad Seeds (Full Album Stream).mp4', 'Nick Cave & The Bad Seeds - No More Shall We Part (full album).mp4', 'Nick Cave - Tender Prey - Full Album 720p HD.mp4']
-    23:14:31.97 .......... len(content_list) = 3
-    23:14:31.97 .......... type(content_list) = <class 'list'>
-    23:14:31.97   28 |     longest = len(max(content_list))
-    23:14:31.97 .......... longest = 48
-    23:14:31.97 .......... type(longest) = <class 'int'>
-    23:14:31.97   29 |     choicelst = []
-    23:14:31.97 .......... type(choicelst) = <class 'list'>
-    23:14:31.97   31 |     if content.endswith("music"):
-    23:14:31.97   34 |         title = "CHOOSE AN ALBUM"
-    23:14:31.97 .............. title = 'CHOOSE AN ALBUM'
-    23:14:31.97 .............. type(title) = <class 'str'>
-    23:14:31.97   36 |     heights = []
-    23:14:31.97 .......... type(heights) = <class 'list'>
-    23:14:31.97   38 |     term = Terminal()
-    23:14:31.97 .......... term = <blessed.terminal.Terminal object at 0x7f1376de8ad0>
-    23:14:31.97 .......... term.shape = ''
-    23:14:31.97 .......... term.dtype = ''
-    23:14:31.97 .......... type(term) = <class 'blessed.terminal.Terminal'>
-    23:14:31.97   43 |     wdth = int(term.width / 4)
-    23:14:31.97 .......... wdth = 42
-    23:14:31.97 .......... type(wdth) = <class 'int'>
-    23:14:31.97   49 |     ht = int((term.height - (len(content_list) + 4)) / 2)
-    23:14:31.97 .......... ht = 9
-    23:14:31.97 .......... type(ht) = <class 'int'>
-    23:14:31.97   53 |     twdth = wdth + int(longest / 2)
-    23:14:31.97 .......... twdth = 66
-    23:14:31.97 .......... type(twdth) = <class 'int'>
-    23:14:31.97   58 |     albums = [[f, str(f) + " - " + "".join(i)] for f, i in enumerate(content_list)]
-        23:14:31.97 List comprehension:
-        23:14:31.97   58 |     albums = [[f, str(f) + " - " + "".join(i)] for f, i in enumerate(content_list)]
-        23:14:31.97 .......... Iterating over <enumerate object at 0x7f1376cc6bb0>
-        23:14:31.97 .......... Values of type(.0): <class 'enumerate'>
-        23:14:31.97 .......... Values of f: 0, 1, 2
-        23:14:31.97 .......... Values of type(f): <class 'int'>
-        23:14:31.97 .......... Values of i: 'Ghosteen – Nick Cave and The Bad Seeds (Full Album Stream).mp4', 'Nick Cave & The Bad Seeds - No More Shall We Part (full album).mp4', 'Nick Cave - Tender Prey - Full Album 720p HD.mp4'
-        23:14:31.97 .......... Values of len(i): 62, 66
-        23:14:31.97 .......... Values of type(i): <class 'str'>
-        23:14:31.97 Result: [[0, '0 - Ghosteen – Nick Cave and The Bad Seeds (Full Album Stream).mp4'], [1, '1 - Nick Cave & The Bad Seeds - No More Shall We Part (full album).mp4'], [2, '2 - Nick Cave - Tender Prey - Full Album 720p HD.mp4']]
-    23:14:31.97   58 |     albums = [[f, str(f) + " - " + "".join(i)] for f, i in enumerate(content_list)]
-    23:14:31.97 .......... albums = [[0, '0 - Ghosteen – Nick Cave and The Bad Seeds (Full Album Stream).mp4'], [1, '1 - Nick Cave & The Bad Seeds - No More Shall We Part (full album).mp4'], [2, '2 - Nick Cave - Tender Prey - Full Album 720p HD.mp4']]
-    23:14:31.97 .......... len(albums) = 3
-    23:14:31.97 .......... type(albums) = <class 'list'>
-    23:14:31.97   64 |     with term.fullscreen(), term.cbreak():
-    23:14:31.97   66 |         print(term.move + term.black_on_peachpuff + term.bold + term.clear, end="")
-    23:14:31.97   69 |         print(term.move_xy(twdth, (ht - 2)) + title)
-    23:14:31.97   73 |         for album in albums:
-    23:14:31.97 .............. album = [0, '0 - Ghosteen – Nick Cave and The Bad Seeds (Full Album Stream).mp4']
-    23:14:31.97 .............. len(album) = 2
-    23:14:31.97 .............. type(album) = <class 'list'>
-    23:14:31.97   74 |             hght = ht + album[0]
-    23:14:31.97 .................. hght = 9
-    23:14:31.97 .................. type(hght) = <class 'int'>
-    23:14:31.97   75 |             heights.append(hght)
-    23:14:31.97 .................. heights = [9]
-    23:14:31.97 .................. len(heights) = 1
-    23:14:31.97   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:14:31.97   73 |         for album in albums:
-    23:14:31.97 .............. album = [1, '1 - Nick Cave & The Bad Seeds - No More Shall We Part (full album).mp4']
-    23:14:31.97   74 |             hght = ht + album[0]
-    23:14:31.97 .................. hght = 10
-    23:14:31.97   75 |             heights.append(hght)
-    23:14:31.97 .................. heights = [9, 10]
-    23:14:31.97 .................. len(heights) = 2
-    23:14:31.97   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:14:31.97   73 |         for album in albums:
-    23:14:31.97 .............. album = [2, '2 - Nick Cave - Tender Prey - Full Album 720p HD.mp4']
-    23:14:31.97   74 |             hght = ht + album[0]
-    23:14:31.97 .................. hght = 11
-    23:14:31.97   75 |             heights.append(hght)
-    23:14:31.97 .................. heights = [9, 10, 11]
-    23:14:31.97 .................. len(heights) = 3
-    23:14:31.97   76 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
-    23:14:31.98   73 |         for album in albums:
-    23:14:31.98   80 |         exitht = heights[-1] + 2
-    23:14:31.98 .............. exitht = 13
-    23:14:31.98 .............. type(exitht) = <class 'int'>
-    23:14:31.98   81 |         print(term.move_xy(wdth, exitht) + "Press 'e' to exit after choosing. Press 'q' to exit this screen.")
-    23:14:31.98   84 |         inpt = ""
-    23:14:31.98 .............. inpt = ''
-    23:14:31.98 .............. type(inpt) = <class 'str'>
-    23:14:31.98   86 |         while inpt.lower() != "q":
-    23:14:31.98   88 |             inpt = term.inkey()
-    23:14:33.04 .................. inpt = '0'
-    23:14:33.04 .................. type(inpt) = <class 'blessed.keyboard.Keystroke'>
-    23:14:33.04   94 |             if inpt != "e":
-    23:14:33.04   96 |                 choicelst.append(str(inpt))
-    23:14:33.04 ...................... choicelst = ['0']
-    23:14:33.04 ...................... len(choicelst) = 1
-    23:14:33.04   99 |                 chcstr = "".join(choicelst)
-    23:14:33.04 ...................... chcstr = '0'
-    23:14:33.04 ...................... type(chcstr) = <class 'str'>
-    23:14:33.04  102 |                 if chcstr:
-    23:14:33.04  103 |                     choice = [i for f, i in enumerate(content_list) if f == int(chcstr)]
-        23:14:33.05 List comprehension:
-        23:14:33.05  103 |                     choice = [i for f, i in enumerate(content_list) if f == int(chcstr)]
-        23:14:33.05 .......................... Iterating over <enumerate object at 0x7f1385dfef70>
-        23:14:33.05 .......................... Values of type(.0): <class 'enumerate'>
-        23:14:33.05 .......................... Values of chcstr: '0'
-        23:14:33.05 .......................... Values of type(chcstr): <class 'str'>
-        23:14:33.05 .......................... Values of f: 0, 1, 2
-        23:14:33.05 .......................... Values of type(f): <class 'int'>
-        23:14:33.05 .......................... Values of i: 'Ghosteen – Nick Cave and The Bad Seeds (Full Album Stream).mp4', 'Nick Cave & The Bad Seeds - No More Shall We Part (full album).mp4', 'Nick Cave - Tender Prey - Full Album 720p HD.mp4'
-        23:14:33.05 .......................... Values of len(i): 62, 66
-        23:14:33.05 .......................... Values of type(i): <class 'str'>
-        23:14:33.05 Result: ['Ghosteen – Nick Cave and The Bad Seeds (Full Album Stream).mp4']
-    23:14:33.05  103 |                     choice = [i for f, i in enumerate(content_list) if f == int(chcstr)]
-    23:14:33.05 .......................... choice = ['Ghosteen – Nick Cave and The Bad Seeds (Full Album Stream).mp4']
-    23:14:33.05 .......................... len(choice) = 1
-    23:14:33.05 .......................... type(choice) = <class 'list'>
-    23:14:33.05  104 |                 with open("choice.bin", "wb") as f:
-    23:14:33.05 ...................... f = <_io.BufferedWriter name='choice.bin'>
-    23:14:33.05 ...................... type(f) = <class '_io.BufferedWriter'>
-    23:14:33.05  105 |                     pickle.dump(choice, f)
-    23:14:33.05  104 |                 with open("choice.bin", "wb") as f:
-    23:14:33.05   86 |         while inpt.lower() != "q":
-    23:14:33.05   88 |             inpt = term.inkey()
-    23:14:34.55 .................. inpt = 'e'
-    23:14:34.55   94 |             if inpt != "e":
-    23:14:34.55  107 |                 break
-    23:14:34.55   64 |     with term.fullscreen(), term.cbreak():
-    23:14:34.55 <<< Return value from choose: None
-23:14:34.55   53 |         choose(f"{music}/{artst[0]}")
-23:14:34.55   54 |         with open("choice.bin", "rb") as g:
-23:14:34.55 .............. g = <_io.BufferedReader name='choice.bin'>
-23:14:34.55 .............. type(g) = <class '_io.BufferedReader'>
-23:14:34.55   55 |             album = pickle.load(g)
-23:14:34.55 .................. album = ['Ghosteen – Nick Cave and The Bad Seeds (Full Album Stream).mp4']
-23:14:34.55 .................. len(album) = 1
-23:14:34.55 .................. type(album) = <class 'list'>
-23:14:34.55   56 |             song = f"{music}/{artst[0]}/{album[0]}"
-23:14:34.55 .................. song = '/home/mic/python/yt_player/yt_player/music/nick_...ck Cave and The Bad Seeds (Full Album Stream).mp4'
-23:14:34.55 .................. len(song) = 115
-23:14:34.55 .................. type(song) = <class 'str'>
-23:14:34.55   54 |         with open("choice.bin", "rb") as g:
-23:14:34.55   58 |     with open("song.bin", "wb") as f:
-23:14:34.55 .......... f = <_io.BufferedWriter name='song.bin'>
-23:14:34.55 .......... type(f) = <class '_io.BufferedWriter'>
-23:14:34.55   59 |         pickle.dump(song, f)
-23:14:34.55   58 |     with open("song.bin", "wb") as f:
-23:14:34.55 <<< Return value from choice_collector: None
-23:14:34.55 >>> Call to ticker in File "/home/mic/python/player/player/player.py", line 106
-23:14:34.55  106 | def ticker():
-23:14:34.55 >>> Call to player in File "/home/mic/python/player/player/player.py", line 67
-23:14:34.55   67 | def player():
-23:14:34.55   76 |     with open("song.bin", "rb") as f:
-23:14:34.55 .......... f = <_io.BufferedReader name='song.bin'>
-23:14:34.55 .......... type(f) = <class '_io.BufferedReader'>
-23:14:34.55   77 |         song = pickle.load(f)
-23:14:34.55  117 |     dur = duration()
-    23:14:34.55 >>> Call to duration in File "/home/mic/python/player/player/player.py", line 82
-    23:14:34.55   82 | def duration():
-    23:14:34.55   90 |     with open("song.bin", "rb") as g:
-23:14:34.55   77 |         song = pickle.load(f)
-    23:14:34.55 .......... g = <_io.BufferedReader name='song.bin'>
-    23:14:34.55 .......... type(g) = <class '_io.BufferedReader'>
-    23:14:34.55   91 |         length = pickle.load(g)
-23:14:34.55 .............. song = '/home/mic/python/yt_player/yt_player/music/nick_...ck Cave and The Bad Seeds (Full Album Stream).mp4'
-23:14:34.55 .............. len(song) = 115
-23:14:34.55 .............. type(song) = <class 'str'>
-23:14:34.55   76 |     with open("song.bin", "rb") as f:
-23:14:34.55   78 |     playsound(song)
-    23:14:34.55   91 |         length = pickle.load(g)
-    23:14:34.55 .............. length = '/home/mic/python/yt_player/yt_player/music/nick_...ck Cave and The Bad Seeds (Full Album Stream).mp4'
-    23:14:34.55 .............. len(length) = 115
-    23:14:34.55 .............. type(length) = <class 'str'>
-    23:14:34.55   90 |     with open("song.bin", "rb") as g:
-    23:14:34.55   97 |     duration = ffmpeg.probe(length)["streams"][0]["duration"]
-    23:14:34.60 .......... duration = '4336.674830'
-    23:14:34.60 .......... type(duration) = <class 'str'>
-    23:14:34.60   98 |     if duration:
-    23:14:34.60   99 |         return duration
-    23:14:34.60 <<< Return value from duration: '4336.674830'
-23:14:34.60  117 |     dur = duration()
-23:14:34.60 .......... dur = '4336.674830'
-23:14:34.60 .......... type(dur) = <class 'str'>
-23:14:34.60  118 |     drt = float(dur)
-23:14:34.60 .......... drt = 4336.67483
-23:14:34.60 .......... type(drt) = <class 'float'>
-23:14:34.60  119 |     drtn = int(drt)
-23:14:34.60 .......... drtn = 4336
-23:14:34.60 .......... type(drtn) = <class 'int'>
-23:14:34.60  121 |     console = Console()
-23:14:34.60 .......... console = <console width=169 ColorSystem.TRUECOLOR>
-23:14:34.60 .......... type(console) = <class 'rich.console.Console'>
-23:14:34.60  122 |     console.print(
-23:14:34.60  123 |         """[bold #E9B384]
-23:14:34.60  122 |     console.print(
-23:14:34.61  135 |     for i in tqdm(
-23:14:34.61  136 |         range(drtn),
-23:14:34.61  137 |         position=0,
-23:14:34.61  138 |         ncols=70,
-23:14:34.61  139 |         colour="yellow",
-23:14:34.61  140 |         bar_format="{percentage:3.0f}%|{bar}| {remaining}]",
-23:14:34.61  135 |     for i in tqdm(
-23:14:34.62 .......... i = 0
-23:14:34.62 .......... type(i) = <class 'int'>
-23:14:34.62  142 |         sleep(1)
-23:14:35.62  135 |     for i in tqdm(
-23:14:35.63 .......... i = 1
-23:14:35.63  142 |         sleep(1)
-23:14:36.63  135 |     for i in tqdm(
-23:14:36.63 .......... i = 2
-23:14:36.63  142 |         sleep(1)
-23:14:37.63  135 |     for i in tqdm(
-23:14:37.63 .......... i = 3
-23:14:37.63  142 |         sleep(1)
-23:14:38.63  135 |     for i in tqdm(
-23:14:38.63 .......... i = 4
-23:14:38.63  142 |         sleep(1)
-23:14:39.63  135 |     for i in tqdm(
-23:14:39.64 .......... i = 5
-23:14:39.64  142 |         sleep(1)
-23:14:40.64  135 |     for i in tqdm(
-23:14:40.64 .......... i = 6
-23:14:40.64  142 |         sleep(1)
-23:14:41.64  135 |     for i in tqdm(
-23:14:41.64 .......... i = 7
-23:14:41.64  142 |         sleep(1)
-23:14:42.64  135 |     for i in tqdm(
-23:14:42.64 .......... i = 8
-23:14:42.64  142 |         sleep(1)
-23:14:43.65  135 |     for i in tqdm(
-23:14:43.65 .......... i = 9
-23:14:43.65  142 |         sleep(1)
-23:14:44.65  135 |     for i in tqdm(
-23:14:44.65 .......... i = 10
-23:14:44.65  142 |         sleep(1)
-23:14:45.65  135 |     for i in tqdm(
-23:14:45.65 .......... i = 11
-23:14:45.65  142 |         sleep(1)
-23:14:46.65  135 |     for i in tqdm(
-23:14:46.66 .......... i = 12
-23:14:46.66  142 |         sleep(1)
-23:14:47.66  135 |     for i in tqdm(
-23:14:47.66 .......... i = 13
-23:14:47.66  142 |         sleep(1)
-23:14:48.66  135 |     for i in tqdm(
-23:14:48.66 .......... i = 14
-23:14:48.66  142 |         sleep(1)
-23:14:49.66  135 |     for i in tqdm(
-23:14:49.67 .......... i = 15
-23:14:49.67  142 |         sleep(1)
-23:14:50.67  135 |     for i in tqdm(
-23:14:50.67 .......... i = 16
-23:14:50.67  142 |         sleep(1)
-23:14:51.67  135 |     for i in tqdm(
-23:14:51.67 .......... i = 17
-23:14:51.67  142 |         sleep(1)
-23:14:52.67  135 |     for i in tqdm(
-23:14:52.68 .......... i = 18
-23:14:52.68  142 |         sleep(1)
-23:14:53.68  135 |     for i in tqdm(
-23:14:53.68 .......... i = 19
-23:14:53.68  142 |         sleep(1)
-23:14:54.68  135 |     for i in tqdm(
-23:14:54.68 .......... i = 20
-23:14:54.68  142 |         sleep(1)
-23:14:55.68  135 |     for i in tqdm(
-23:14:55.68 .......... i = 21
-23:14:55.68  142 |         sleep(1)
-23:14:56.69  135 |     for i in tqdm(
-23:14:56.69 .......... i = 22
-23:14:56.69  142 |         sleep(1)
-23:14:57.69  135 |     for i in tqdm(
-23:14:57.69 .......... i = 23
-23:14:57.69  142 |         sleep(1)
-23:14:58.69  135 |     for i in tqdm(
-23:14:58.69 .......... i = 24
-23:14:58.69  142 |         sleep(1)
-23:14:59.69  135 |     for i in tqdm(
-23:14:59.70 .......... i = 25
-23:14:59.70  142 |         sleep(1)
-23:15:00.70  135 |     for i in tqdm(
-23:15:00.70 .......... i = 26
-23:15:00.70  142 |         sleep(1)
-23:15:01.70  135 |     for i in tqdm(
-23:15:01.70 .......... i = 27
-23:15:01.70  142 |         sleep(1)
-23:15:02.70  135 |     for i in tqdm(
-23:15:02.70 .......... i = 28
-23:15:02.70  142 |         sleep(1)
-23:15:03.70  135 |     for i in tqdm(
-23:15:03.71 .......... i = 29
-23:15:03.71  142 |         sleep(1)
-23:15:04.71  135 |     for i in tqdm(
-23:15:04.71 .......... i = 30
-23:15:04.71  142 |         sleep(1)
-23:15:05.71  135 |     for i in tqdm(
-23:15:05.71 .......... i = 31
-23:15:05.71  142 |         sleep(1)
-23:15:06.71  135 |     for i in tqdm(
-23:15:06.71 .......... i = 32
-23:15:06.71  142 |         sleep(1)
-23:15:07.71  135 |     for i in tqdm(
-23:15:07.72 .......... i = 33
-23:15:07.72  142 |         sleep(1)
-23:15:08.72  135 |     for i in tqdm(
-23:15:08.72 .......... i = 34
-23:15:08.72  142 |         sleep(1)
-23:15:09.72  135 |     for i in tqdm(
-23:15:09.72 .......... i = 35
-23:15:09.72  142 |         sleep(1)
-23:15:10.72  135 |     for i in tqdm(
-23:15:10.72 .......... i = 36
-23:15:10.72  142 |         sleep(1)
-23:15:11.73  135 |     for i in tqdm(
-23:15:11.73 .......... i = 37
-23:15:11.73  142 |         sleep(1)
-23:15:12.73  135 |     for i in tqdm(
-23:15:12.73 .......... i = 38
-23:15:12.73  142 |         sleep(1)
-23:15:13.73  135 |     for i in tqdm(
-23:15:13.73 .......... i = 39
-23:15:13.73  142 |         sleep(1)
-23:15:14.73  135 |     for i in tqdm(
-23:15:14.74 .......... i = 40
-23:15:14.74  142 |         sleep(1)
-23:15:15.74  135 |     for i in tqdm(
-23:15:15.74 .......... i = 41
-23:15:15.74  142 |         sleep(1)
-23:15:16.74  135 |     for i in tqdm(
-23:15:16.74 .......... i = 42
-23:15:16.74  142 |         sleep(1)
-23:15:17.74  135 |     for i in tqdm(
-23:15:17.74 .......... i = 43
-23:15:17.74  142 |         sleep(1)
-23:15:18.75  135 |     for i in tqdm(
-23:15:18.75 .......... i = 44
-23:15:18.75  142 |         sleep(1)
-23:15:19.75  135 |     for i in tqdm(
-23:15:19.75 .......... i = 45
-23:15:19.75  142 |         sleep(1)
-23:15:20.75  135 |     for i in tqdm(
-23:15:20.75 .......... i = 46
-23:15:20.75  142 |         sleep(1)
-23:15:21.75  135 |     for i in tqdm(
-23:15:21.76 .......... i = 47
-23:15:21.76  142 |         sleep(1)
-23:15:22.76  135 |     for i in tqdm(
-23:15:22.76 .......... i = 48
-23:15:22.76  142 |         sleep(1)
-23:15:23.76  135 |     for i in tqdm(
-23:15:23.76 .......... i = 49
-23:15:23.76  142 |         sleep(1)
-23:15:24.76  135 |     for i in tqdm(
-23:15:24.76 .......... i = 50
-23:15:24.76  142 |         sleep(1)
-23:15:25.76  135 |     for i in tqdm(
-23:15:25.77 .......... i = 51
-23:15:25.77  142 |         sleep(1)
-23:15:26.77  135 |     for i in tqdm(
-23:15:26.77 .......... i = 52
-23:15:26.77  142 |         sleep(1)
-23:15:27.77  135 |     for i in tqdm(
-23:15:27.77 .......... i = 53
-23:15:27.77  142 |         sleep(1)
-23:15:28.77  135 |     for i in tqdm(
-23:15:28.78 .......... i = 54
-23:15:28.78  142 |         sleep(1)
-23:15:29.78  135 |     for i in tqdm(
-23:15:29.78 .......... i = 55
-23:15:29.78  142 |         sleep(1)
-23:15:30.78  135 |     for i in tqdm(
-23:15:30.78 .......... i = 56
-23:15:30.78  142 |         sleep(1)
-23:15:31.78  135 |     for i in tqdm(
-23:15:31.78 .......... i = 57
-23:15:31.78  142 |         sleep(1)
-23:15:32.78  135 |     for i in tqdm(
-23:15:32.79 .......... i = 58
-23:15:32.79  142 |         sleep(1)
-23:15:33.79  135 |     for i in tqdm(
-23:15:33.79 .......... i = 59
-23:15:33.79  142 |         sleep(1)
-23:15:34.79  135 |     for i in tqdm(
-23:15:34.79 .......... i = 60
-23:15:34.79  142 |         sleep(1)
-23:15:35.79  135 |     for i in tqdm(
-23:15:35.80 .......... i = 61
-23:15:35.80  142 |         sleep(1)
-23:15:36.80  135 |     for i in tqdm(
-23:15:36.80 .......... i = 62
-23:15:36.80  142 |         sleep(1)
-23:15:37.80  135 |     for i in tqdm(
-23:15:37.80 .......... i = 63
-23:15:37.80  142 |         sleep(1)
-23:15:38.80  135 |     for i in tqdm(
-23:15:38.80 .......... i = 64
-23:15:38.80  142 |         sleep(1)
-23:15:39.80  135 |     for i in tqdm(
-23:15:39.81 .......... i = 65
-23:15:39.81  142 |         sleep(1)
-23:15:40.81  135 |     for i in tqdm(
-23:15:40.81 .......... i = 66
-23:15:40.81  142 |         sleep(1)
-23:15:41.81  135 |     for i in tqdm(
-23:15:41.81 .......... i = 67
-23:15:41.81  142 |         sleep(1)
-23:15:42.81  135 |     for i in tqdm(
-23:15:42.81 .......... i = 68
-23:15:42.81  142 |         sleep(1)
-23:15:43.81  135 |     for i in tqdm(
-23:15:43.82 .......... i = 69
-23:15:43.82  142 |         sleep(1)
-23:15:44.82  135 |     for i in tqdm(
-23:15:44.82 .......... i = 70
-23:15:44.82  142 |         sleep(1)
-23:15:45.82  135 |     for i in tqdm(
-23:15:45.82 .......... i = 71
-23:15:45.82  142 |         sleep(1)
-23:15:46.82  135 |     for i in tqdm(
-23:15:46.83 .......... i = 72
-23:15:46.83  142 |         sleep(1)
-23:15:47.83  135 |     for i in tqdm(
-23:15:47.83 .......... i = 73
-23:15:47.83  142 |         sleep(1)
-23:15:48.83  135 |     for i in tqdm(
-23:15:48.83 .......... i = 74
-23:15:48.83  142 |         sleep(1)
-23:15:49.83  135 |     for i in tqdm(
-23:15:49.83 .......... i = 75
-23:15:49.83  142 |         sleep(1)
-23:15:50.83  135 |     for i in tqdm(
-23:15:50.84 .......... i = 76
-23:15:50.84  142 |         sleep(1)
-23:15:51.84  135 |     for i in tqdm(
-23:15:51.84 .......... i = 77
-23:15:51.84  142 |         sleep(1)
-23:15:52.84  135 |     for i in tqdm(
-23:15:52.84 .......... i = 78
-23:15:52.84  142 |         sleep(1)
-23:15:53.84  135 |     for i in tqdm(
-23:15:53.84 .......... i = 79
-23:15:53.84  142 |         sleep(1)
-23:15:54.85  135 |     for i in tqdm(
-23:15:54.85 .......... i = 80
-23:15:54.85  142 |         sleep(1)
-23:15:55.85  135 |     for i in tqdm(
-23:15:55.85 .......... i = 81
-23:15:55.85  142 |         sleep(1)
-23:15:56.85  135 |     for i in tqdm(
-23:15:56.85 .......... i = 82
-23:15:56.85  142 |         sleep(1)
-23:15:57.85  135 |     for i in tqdm(
-23:15:57.86 .......... i = 83
-23:15:57.86  142 |         sleep(1)
-23:15:58.86  135 |     for i in tqdm(
-23:15:58.86 .......... i = 84
-23:15:58.86  142 |         sleep(1)
-23:15:59.86  135 |     for i in tqdm(
-23:15:59.86 .......... i = 85
-23:15:59.86  142 |         sleep(1)
-23:16:00.86  135 |     for i in tqdm(
-23:16:00.86 .......... i = 86
-23:16:00.86  142 |         sleep(1)
-23:16:01.87  135 |     for i in tqdm(
-23:16:01.87 .......... i = 87
-23:16:01.87  142 |         sleep(1)
-23:16:02.87  135 |     for i in tqdm(
-23:16:02.87 .......... i = 88
-23:16:02.87  142 |         sleep(1)
-23:16:03.87  135 |     for i in tqdm(
-23:16:03.87 .......... i = 89
-23:16:03.87  142 |         sleep(1)
-23:16:04.87  135 |     for i in tqdm(
-23:16:04.88 .......... i = 90
-23:16:04.88  142 |         sleep(1)
-23:16:05.88  135 |     for i in tqdm(
-23:16:05.88 .......... i = 91
-23:16:05.88  142 |         sleep(1)
-23:16:06.88  135 |     for i in tqdm(
-23:16:06.88 .......... i = 92
-23:16:06.88  142 |         sleep(1)
-23:16:07.88  135 |     for i in tqdm(
-23:16:07.88 .......... i = 93
-23:16:07.88  142 |         sleep(1)
-23:16:08.89  135 |     for i in tqdm(
-23:16:08.89 .......... i = 94
-23:16:08.89  142 |         sleep(1)
-23:16:09.89  135 |     for i in tqdm(
-23:16:09.89 .......... i = 95
-23:16:09.89  142 |         sleep(1)
-23:16:10.89  135 |     for i in tqdm(
-23:16:10.89 .......... i = 96
-23:16:10.89  142 |         sleep(1)
-23:16:11.89  135 |     for i in tqdm(
-23:16:11.89 .......... i = 97
-23:16:11.89  142 |         sleep(1)
-23:16:12.89  135 |     for i in tqdm(
-23:16:12.90 .......... i = 98
-23:16:12.90  142 |         sleep(1)
-23:16:13.90  135 |     for i in tqdm(
-23:16:13.90 .......... i = 99
-23:16:13.90  142 |         sleep(1)
-23:16:14.90  135 |     for i in tqdm(
-23:16:14.90 .......... i = 100
-23:16:14.90  142 |         sleep(1)
-23:16:15.90  135 |     for i in tqdm(
-23:16:15.90 .......... i = 101
-23:16:15.90  142 |         sleep(1)
-23:16:16.91  135 |     for i in tqdm(
-23:16:16.91 .......... i = 102
-23:16:16.91  142 |         sleep(1)
-23:16:17.91  135 |     for i in tqdm(
-23:16:17.91 .......... i = 103
-23:16:17.91  142 |         sleep(1)
-23:16:18.91  135 |     for i in tqdm(
-23:16:18.91 .......... i = 104
-23:16:18.91  142 |         sleep(1)
-23:16:19.91  135 |     for i in tqdm(
-23:16:19.92 .......... i = 105
-23:16:19.92  142 |         sleep(1)
-23:16:20.92  135 |     for i in tqdm(
-23:16:20.92 .......... i = 106
-23:16:20.92  142 |         sleep(1)
-23:16:21.92  135 |     for i in tqdm(
-23:16:21.92 .......... i = 107
-23:16:21.92  142 |         sleep(1)
-23:16:22.92  135 |     for i in tqdm(
-23:16:22.92 .......... i = 108
-23:16:22.92  142 |         sleep(1)
-23:16:23.93  135 |     for i in tqdm(
-23:16:23.93 .......... i = 109
-23:16:23.93  142 |         sleep(1)
-23:16:24.93  135 |     for i in tqdm(
-23:16:24.93 .......... i = 110
-23:16:24.93  142 |         sleep(1)
-23:16:25.93  135 |     for i in tqdm(
-23:16:25.93 .......... i = 111
-23:16:25.93  142 |         sleep(1)
-23:16:26.93  135 |     for i in tqdm(
-23:16:26.94 .......... i = 112
-23:16:26.94  142 |         sleep(1)
-23:16:27.94  135 |     for i in tqdm(
-23:16:27.94 .......... i = 113
-23:16:27.94  142 |         sleep(1)
-23:16:28.94  135 |     for i in tqdm(
-23:16:28.94 .......... i = 114
-23:16:28.94  142 |         sleep(1)
-23:16:29.94  135 |     for i in tqdm(
-23:16:29.94 .......... i = 115
-23:16:29.94  142 |         sleep(1)
-23:16:30.95  135 |     for i in tqdm(
-23:16:30.95 .......... i = 116
-23:16:30.95  142 |         sleep(1)
-23:16:31.95  135 |     for i in tqdm(
-23:16:31.95 .......... i = 117
-23:16:31.95  142 |         sleep(1)
-23:16:32.95  135 |     for i in tqdm(
-23:16:32.95 .......... i = 118
-23:16:32.95  142 |         sleep(1)
-23:16:33.95  135 |     for i in tqdm(
-23:16:33.96 .......... i = 119
-23:16:33.96  142 |         sleep(1)
-23:16:34.96  135 |     for i in tqdm(
-23:16:34.96 .......... i = 120
-23:16:34.96  142 |         sleep(1)
-23:16:35.96  135 |     for i in tqdm(
-23:16:35.96 .......... i = 121
-23:16:35.96  142 |         sleep(1)
-23:16:36.96  135 |     for i in tqdm(
-23:16:36.96 .......... i = 122
-23:16:36.96  142 |         sleep(1)
-23:16:37.96  135 |     for i in tqdm(
-23:16:37.96 .......... i = 123
-23:16:37.96  142 |         sleep(1)
-23:16:38.97  135 |     for i in tqdm(
-23:16:38.97 .......... i = 124
-23:16:38.97  142 |         sleep(1)
-23:16:39.97  135 |     for i in tqdm(
-23:16:39.97 .......... i = 125
-23:16:39.97  142 |         sleep(1)
-23:16:40.97  135 |     for i in tqdm(
-23:16:40.97 .......... i = 126
-23:16:40.97  142 |         sleep(1)
-23:16:41.97  135 |     for i in tqdm(
-23:16:41.98 .......... i = 127
-23:16:41.98  142 |         sleep(1)
-23:16:42.98  135 |     for i in tqdm(
-23:16:42.98 .......... i = 128
-23:16:42.98  142 |         sleep(1)
-23:16:43.98  135 |     for i in tqdm(
-23:16:43.98 .......... i = 129
-23:16:43.98  142 |         sleep(1)
-23:16:44.98  135 |     for i in tqdm(
-23:16:44.98 .......... i = 130
-23:16:44.98  142 |         sleep(1)
-23:16:45.98  135 |     for i in tqdm(
-23:16:45.99 .......... i = 131
-23:16:45.99  142 |         sleep(1)
-23:16:46.99  135 |     for i in tqdm(
-23:16:46.99 .......... i = 132
-23:16:46.99  142 |         sleep(1)
-23:16:47.99  135 |     for i in tqdm(
-23:16:47.99 .......... i = 133
-23:16:47.99  142 |         sleep(1)
-23:16:48.99  135 |     for i in tqdm(
-23:16:48.99 .......... i = 134
-23:16:48.99  142 |         sleep(1)
-23:16:49.99  135 |     for i in tqdm(
-23:16:50.00 .......... i = 135
-23:16:50.00  142 |         sleep(1)
-23:16:51.00  135 |     for i in tqdm(
-23:16:51.00 .......... i = 136
-23:16:51.00  142 |         sleep(1)
-23:16:52.00  135 |     for i in tqdm(
-23:16:52.00 .......... i = 137
-23:16:52.00  142 |         sleep(1)
-23:16:53.00  135 |     for i in tqdm(
-23:16:53.00 .......... i = 138
-23:16:53.00  142 |         sleep(1)
-23:16:54.00  135 |     for i in tqdm(
-23:16:54.01 .......... i = 139
-23:16:54.01  142 |         sleep(1)
-23:16:55.01  135 |     for i in tqdm(
-23:16:55.01 .......... i = 140
-23:16:55.01  142 |         sleep(1)
-23:16:56.01  135 |     for i in tqdm(
-23:16:56.01 .......... i = 141
-23:16:56.01  142 |         sleep(1)
-23:16:57.01  135 |     for i in tqdm(
-23:16:57.01 .......... i = 142
-23:16:57.01  142 |         sleep(1)
-23:16:58.02  135 |     for i in tqdm(
-23:16:58.02 .......... i = 143
-23:16:58.02  142 |         sleep(1)
-23:16:59.02  135 |     for i in tqdm(
-23:16:59.02 .......... i = 144
-23:16:59.02  142 |         sleep(1)
-23:17:00.02  135 |     for i in tqdm(
-23:17:00.02 .......... i = 145
-23:17:00.02  142 |         sleep(1)
-23:17:01.02  135 |     for i in tqdm(
-23:17:01.02 .......... i = 146
-23:17:01.02  142 |         sleep(1)
-23:17:02.03  135 |     for i in tqdm(
-23:17:02.03 .......... i = 147
-23:17:02.03  142 |         sleep(1)
-23:17:03.03  135 |     for i in tqdm(
-23:17:03.03 .......... i = 148
-23:17:03.03  142 |         sleep(1)
-23:17:04.03  135 |     for i in tqdm(
-23:17:04.03 .......... i = 149
-23:17:04.03  142 |         sleep(1)
-23:17:05.03  135 |     for i in tqdm(
-23:17:05.03 .......... i = 150
-23:17:05.03  142 |         sleep(1)
-23:17:06.03  135 |     for i in tqdm(
-23:17:06.04 .......... i = 151
-23:17:06.04  142 |         sleep(1)
-23:17:07.04  135 |     for i in tqdm(
-23:17:07.04 .......... i = 152
-23:17:07.04  142 |         sleep(1)
-23:17:08.04  135 |     for i in tqdm(
-23:17:08.04 .......... i = 153
-23:17:08.04  142 |         sleep(1)
-23:17:09.04  135 |     for i in tqdm(
-23:17:09.04 .......... i = 154
-23:17:09.04  142 |         sleep(1)
-23:17:10.04  135 |     for i in tqdm(
-23:17:10.05 .......... i = 155
-23:17:10.05  142 |         sleep(1)
-23:17:11.05  135 |     for i in tqdm(
-23:17:11.05 .......... i = 156
-23:17:11.05  142 |         sleep(1)
-23:17:12.05  135 |     for i in tqdm(
-23:17:12.05 .......... i = 157
-23:17:12.05  142 |         sleep(1)
-23:17:13.05  135 |     for i in tqdm(
-23:17:13.05 .......... i = 158
-23:17:13.05  142 |         sleep(1)
-23:17:14.06  135 |     for i in tqdm(
-23:17:14.06 .......... i = 159
-23:17:14.06  142 |         sleep(1)
-23:17:15.06  135 |     for i in tqdm(
-23:17:15.06 .......... i = 160
-23:17:15.06  142 |         sleep(1)
-23:17:16.06  135 |     for i in tqdm(
-23:17:16.06 .......... i = 161
-23:17:16.06  142 |         sleep(1)
-23:17:17.06  135 |     for i in tqdm(
-23:17:17.06 .......... i = 162
-23:17:17.06  142 |         sleep(1)
-23:17:18.06  135 |     for i in tqdm(
-23:17:18.06 .......... i = 163
-23:17:18.06  142 |         sleep(1)
-23:17:19.07  135 |     for i in tqdm(
-23:17:19.07 .......... i = 164
-23:17:19.07  142 |         sleep(1)
-23:17:20.07  135 |     for i in tqdm(
-23:17:20.07 .......... i = 165
-23:17:20.07  142 |         sleep(1)
-23:17:21.07  135 |     for i in tqdm(
-23:17:21.07 .......... i = 166
-23:17:21.07  142 |         sleep(1)
-23:17:22.07  135 |     for i in tqdm(
-23:17:22.07 .......... i = 167
-23:17:22.07  142 |         sleep(1)
-23:17:23.08  135 |     for i in tqdm(
-23:17:23.08 .......... i = 168
-23:17:23.08  142 |         sleep(1)
-23:17:24.08  135 |     for i in tqdm(
-23:17:24.08 .......... i = 169
-23:17:24.08  142 |         sleep(1)
-23:17:25.08  135 |     for i in tqdm(
-23:17:25.08 .......... i = 170
-23:17:25.08  142 |         sleep(1)
-23:17:26.08  135 |     for i in tqdm(
-23:17:26.09 .......... i = 171
-23:17:26.09  142 |         sleep(1)
-23:17:27.09  135 |     for i in tqdm(
-23:17:27.09 .......... i = 172
-23:17:27.09  142 |         sleep(1)
-23:17:28.09  135 |     for i in tqdm(
-23:17:28.09 .......... i = 173
-23:17:28.09  142 |         sleep(1)
-23:17:29.09  135 |     for i in tqdm(
-23:17:29.09 .......... i = 174
-23:17:29.09  142 |         sleep(1)
-23:17:30.09  135 |     for i in tqdm(
-23:17:30.10 .......... i = 175
-23:17:30.10  142 |         sleep(1)
-23:17:31.10  135 |     for i in tqdm(
-23:17:31.10 .......... i = 176
-23:17:31.10  142 |         sleep(1)
-23:17:32.10  135 |     for i in tqdm(
-23:17:32.10 .......... i = 177
-23:17:32.10  142 |         sleep(1)
-23:17:33.10  135 |     for i in tqdm(
-23:17:33.11 .......... i = 178
-23:17:33.11  142 |         sleep(1)
-23:17:34.11  135 |     for i in tqdm(
-23:17:34.11 .......... i = 179
-23:17:34.11  142 |         sleep(1)
-23:17:35.11  135 |     for i in tqdm(
-23:17:35.11 .......... i = 180
-23:17:35.11  142 |         sleep(1)
-23:17:36.11  135 |     for i in tqdm(
-23:17:36.11 .......... i = 181
-23:17:36.11  142 |         sleep(1)
-23:17:37.11  135 |     for i in tqdm(
-23:17:37.11 .......... i = 182
-23:17:37.11  142 |         sleep(1)
-23:17:38.12  135 |     for i in tqdm(
-23:17:38.12 .......... i = 183
-23:17:38.12  142 |         sleep(1)
-23:17:39.12  135 |     for i in tqdm(
-23:17:39.12 .......... i = 184
-23:17:39.12  142 |         sleep(1)
-23:17:40.12  135 |     for i in tqdm(
-23:17:40.12 .......... i = 185
-23:17:40.12  142 |         sleep(1)
-23:17:41.12  135 |     for i in tqdm(
-23:17:41.12 .......... i = 186
-23:17:41.12  142 |         sleep(1)
-23:17:42.12  135 |     for i in tqdm(
-23:17:42.13 .......... i = 187
-23:17:42.13  142 |         sleep(1)
-23:17:43.13  135 |     for i in tqdm(
-23:17:43.13 .......... i = 188
-23:17:43.13  142 |         sleep(1)
-23:17:44.13  135 |     for i in tqdm(
-23:17:44.13 .......... i = 189
-23:17:44.13  142 |         sleep(1)
-23:17:45.13  135 |     for i in tqdm(
-23:17:45.13 .......... i = 190
-23:17:45.13  142 |         sleep(1)
-23:17:46.13  135 |     for i in tqdm(
-23:17:46.14 .......... i = 191
-23:17:46.14  142 |         sleep(1)
-23:17:47.14  135 |     for i in tqdm(
-23:17:47.14 .......... i = 192
-23:17:47.14  142 |         sleep(1)
-23:17:48.14  135 |     for i in tqdm(
-23:17:48.14 .......... i = 193
-23:17:48.14  142 |         sleep(1)
-23:17:49.14  135 |     for i in tqdm(
-23:17:49.14 .......... i = 194
-23:17:49.14  142 |         sleep(1)
-23:17:50.14  135 |     for i in tqdm(
-23:17:50.14 .......... i = 195
-23:17:50.14  142 |         sleep(1)
-23:17:51.15  135 |     for i in tqdm(
-23:17:51.15 .......... i = 196
-23:17:51.15  142 |         sleep(1)
-23:17:52.15  135 |     for i in tqdm(
-23:17:52.15 .......... i = 197
-23:17:52.15  142 |         sleep(1)
-23:17:53.15  135 |     for i in tqdm(
-23:17:53.15 .......... i = 198
-23:17:53.15  142 |         sleep(1)
-23:17:54.15  135 |     for i in tqdm(
-23:17:54.16 .......... i = 199
-23:17:54.16  142 |         sleep(1)
-23:17:55.16  135 |     for i in tqdm(
-23:17:55.16 .......... i = 200
-23:17:55.16  142 |         sleep(1)
-23:17:56.16  135 |     for i in tqdm(
-23:17:56.16 .......... i = 201
-23:17:56.16  142 |         sleep(1)
-23:17:57.16  135 |     for i in tqdm(
-23:17:57.17 .......... i = 202
-23:17:57.17  142 |         sleep(1)
-23:17:58.17  135 |     for i in tqdm(
-23:17:58.17 .......... i = 203
-23:17:58.17  142 |         sleep(1)
-23:17:59.17  135 |     for i in tqdm(
-23:17:59.17 .......... i = 204
-23:17:59.17  142 |         sleep(1)
-23:18:00.17  135 |     for i in tqdm(
-23:18:00.17 .......... i = 205
-23:18:00.17  142 |         sleep(1)
-23:18:01.18  135 |     for i in tqdm(
-23:18:01.18 .......... i = 206
-23:18:01.18  142 |         sleep(1)
-23:18:02.18  135 |     for i in tqdm(
-23:18:02.18 .......... i = 207
-23:18:02.18  142 |         sleep(1)
-23:18:03.18  135 |     for i in tqdm(
-23:18:03.18 .......... i = 208
-23:18:03.18  142 |         sleep(1)
-23:18:04.18  135 |     for i in tqdm(
-23:18:04.19 .......... i = 209
-23:18:04.19  142 |         sleep(1)
-23:18:05.19  135 |     for i in tqdm(
-23:18:05.19 .......... i = 210
-23:18:05.19  142 |         sleep(1)
-23:18:06.19  135 |     for i in tqdm(
-23:18:06.19 .......... i = 211
-23:18:06.19  142 |         sleep(1)
-23:18:07.19  135 |     for i in tqdm(
-23:18:07.19 .......... i = 212
-23:18:07.19  142 |         sleep(1)
-23:18:08.20  135 |     for i in tqdm(
-23:18:08.20 .......... i = 213
-23:18:08.20  142 |         sleep(1)
-23:18:09.20  135 |     for i in tqdm(
-23:18:09.20 .......... i = 214
-23:18:09.20  142 |         sleep(1)
-23:18:10.20  135 |     for i in tqdm(
-23:18:10.20 .......... i = 215
-23:18:10.20  142 |         sleep(1)
-23:18:11.20  135 |     for i in tqdm(
-23:18:11.20 .......... i = 216
-23:18:11.20  142 |         sleep(1)
+15:21:55.92 >>> Call to choice_collector in File "/home/mic/python/player/player/player.py", line 30
+15:21:55.92   30 | def choice_collector():
+15:21:55.93   36 |     music = "/home/mic/python/yt_player/yt_player/music"
+15:21:55.93 .......... music = '/home/mic/python/yt_player/yt_player/music'
+15:21:55.93 .......... type(music) = <class 'str'>
+15:21:55.93   42 |     choose(music)
+    15:21:55.93 >>> Call to choose in File "/home/mic/python/player/player/choose.py", line 21
+    15:21:55.93 ...... content = '/home/mic/python/yt_player/yt_player/music'
+    15:21:55.93 ...... type(content) = <class 'str'>
+    15:21:55.93   21 | def choose(content):
+    15:21:55.93   25 |     content_list = os.listdir(content)
+    15:21:55.93 .......... content_list = ['porridge_radio', 'planning_for_a_burial', 'nick_cave', ..., 'songs:_ohia', 'viagra_boys', 'alt-j']
+    15:21:55.93 .......... len(content_list) = 20
+    15:21:55.93 .......... type(content_list) = <class 'list'>
+    15:21:55.93   27 |     longest = len(max(content_list))
+    15:21:55.93 .......... longest = 8
+    15:21:55.93 .......... type(longest) = <class 'int'>
+    15:21:55.93   28 |     choicelst = []
+    15:21:55.93 .......... type(choicelst) = <class 'list'>
+    15:21:55.93   30 |     if content.endswith("music"):
+    15:21:55.93   31 |         title = "CHOOSE AN ARTIST"
+    15:21:55.93 .............. title = 'CHOOSE AN ARTIST'
+    15:21:55.93 .............. type(title) = <class 'str'>
+    15:21:55.93   35 |     heights = []
+    15:21:55.93 .......... type(heights) = <class 'list'>
+    15:21:55.93   37 |     term = Terminal()
+    15:21:55.95 .......... term = <blessed.terminal.Terminal object at 0x7f2a623de390>
+    15:21:55.95 .......... term.shape = ''
+    15:21:55.95 .......... term.dtype = ''
+    15:21:55.95 .......... type(term) = <class 'blessed.terminal.Terminal'>
+    15:21:55.95   42 |     wdth = int(term.width / 4)
+    15:21:55.95 .......... wdth = 122
+    15:21:55.95 .......... type(wdth) = <class 'int'>
+    15:21:55.95   48 |     ht = int((term.height - (len(content_list) + 4)) / 2)
+    15:21:55.95 .......... ht = 29
+    15:21:55.95 .......... type(ht) = <class 'int'>
+    15:21:55.95   52 |     twdth = wdth + int(longest / 2)
+    15:21:55.95 .......... twdth = 126
+    15:21:55.95 .......... type(twdth) = <class 'int'>
+    15:21:55.95   57 |     albums = [[f, str(f) + " - " + "".join(i)] for f, i in enumerate(content_list)]
+        15:21:55.95 List comprehension:
+        15:21:55.95   57 |     albums = [[f, str(f) + " - " + "".join(i)] for f, i in enumerate(content_list)]
+        15:21:55.95 .......... Iterating over <enumerate object at 0x7f2a621a5f30>
+        15:21:55.95 .......... Values of type(.0): <class 'enumerate'>
+        15:21:55.95 .......... Values of f: 0, 1, 2, 3, 4, ..., 15, 16, 17, 18, 19
+        15:21:55.95 .......... Values of type(f): <class 'int'>
+        15:21:55.95 .......... Values of i: 'porridge_radio', 'planning_for_a_burial', 'nick_cave', 'have_a_nice_life', 'son_house', ..., 'fontaines_dc', 'deluge', 'songs:_ohia', 'viagra_boys', 'alt-j'
+        15:21:55.95 .......... Values of type(i): <class 'str'>
+        15:21:55.95 Result: [[0, '0 - porridge_radio'], [1, '1 - planning_for_a_burial'], [2, '2 - nick_cave'], ..., [17, '17 - songs:_ohia'], [18, '18 - viagra_boys'], [19, '19 - alt-j']]
+    15:21:55.95   57 |     albums = [[f, str(f) + " - " + "".join(i)] for f, i in enumerate(content_list)]
+    15:21:55.95 .......... albums = [[0, '0 - porridge_radio'], [1, '1 - planning_for_a_burial'], [2, '2 - nick_cave'], ..., [17, '17 - songs:_ohia'], [18, '18 - viagra_boys'], [19, '19 - alt-j']]
+    15:21:55.95 .......... len(albums) = 20
+    15:21:55.95 .......... type(albums) = <class 'list'>
+    15:21:55.95   63 |     with term.fullscreen(), term.cbreak():
+    15:21:55.95   65 |         print(term.move + term.black_on_peachpuff + term.bold + term.clear, end="")
+    15:21:55.95   68 |         print(term.move_xy(twdth, (ht - 2)) + title)
+    15:21:55.95   72 |         for album in albums:
+    15:21:55.95 .............. album = [0, '0 - porridge_radio']
+    15:21:55.95 .............. len(album) = 2
+    15:21:55.95 .............. type(album) = <class 'list'>
+    15:21:55.95   73 |             hght = ht + album[0]
+    15:21:55.95 .................. hght = 29
+    15:21:55.95 .................. type(hght) = <class 'int'>
+    15:21:55.95   74 |             heights.append(hght)
+    15:21:55.95 .................. heights = [29]
+    15:21:55.95 .................. len(heights) = 1
+    15:21:55.95   75 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    15:21:55.95   72 |         for album in albums:
+    15:21:55.95 .............. album = [1, '1 - planning_for_a_burial']
+    15:21:55.95   73 |             hght = ht + album[0]
+    15:21:55.95 .................. hght = 30
+    15:21:55.95   74 |             heights.append(hght)
+    15:21:55.95 .................. heights = [29, 30]
+    15:21:55.95 .................. len(heights) = 2
+    15:21:55.95   75 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    15:21:55.95   72 |         for album in albums:
+    15:21:55.95 .............. album = [2, '2 - nick_cave']
+    15:21:55.95   73 |             hght = ht + album[0]
+    15:21:55.95 .................. hght = 31
+    15:21:55.95   74 |             heights.append(hght)
+    15:21:55.95 .................. heights = [29, 30, 31]
+    15:21:55.95 .................. len(heights) = 3
+    15:21:55.95   75 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    15:21:55.95   72 |         for album in albums:
+    15:21:55.95 .............. album = [3, '3 - have_a_nice_life']
+    15:21:55.95   73 |             hght = ht + album[0]
+    15:21:55.95 .................. hght = 32
+    15:21:55.95   74 |             heights.append(hght)
+    15:21:55.95 .................. heights = [29, 30, 31, 32]
+    15:21:55.95 .................. len(heights) = 4
+    15:21:55.95   75 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    15:21:55.95   72 |         for album in albums:
+    15:21:55.95 .............. album = [4, '4 - son_house']
+    15:21:55.95   73 |             hght = ht + album[0]
+    15:21:55.95 .................. hght = 33
+    15:21:55.95   74 |             heights.append(hght)
+    15:21:55.96 .................. heights = [29, 30, 31, 32, 33]
+    15:21:55.96 .................. len(heights) = 5
+    15:21:55.96   75 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    15:21:55.96   72 |         for album in albums:
+    15:21:55.96 .............. album = [5, '5 - gnaw_their_tongues_full_album']
+    15:21:55.96   73 |             hght = ht + album[0]
+    15:21:55.96 .................. hght = 34
+    15:21:55.96   74 |             heights.append(hght)
+    15:21:55.96 .................. heights = [29, 30, 31, 32, 33, 34]
+    15:21:55.96 .................. len(heights) = 6
+    15:21:55.96   75 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    15:21:55.96   72 |         for album in albums:
+    15:21:55.96 .............. album = [6, '6 - giles_corey_full_album']
+    15:21:55.96   73 |             hght = ht + album[0]
+    15:21:55.96 .................. hght = 35
+    15:21:55.96   74 |             heights.append(hght)
+    15:21:55.96 .................. heights = [29, 30, 31, 32, 33, 34, 35]
+    15:21:55.96 .................. len(heights) = 7
+    15:21:55.96   75 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    15:21:55.96   72 |         for album in albums:
+    15:21:55.96 .............. album = [7, '7 - townes_van_zandt']
+    15:21:55.96   73 |             hght = ht + album[0]
+    15:21:55.96 .................. hght = 36
+    15:21:55.96   74 |             heights.append(hght)
+    15:21:55.96 .................. heights = [29, 30, 31, 32, 33, 34, 35, 36]
+    15:21:55.96 .................. len(heights) = 8
+    15:21:55.96   75 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    15:21:55.96   72 |         for album in albums:
+    15:21:55.96 .............. album = [8, '8 - Ufomammut']
+    15:21:55.96   73 |             hght = ht + album[0]
+    15:21:55.96 .................. hght = 37
+    15:21:55.96   74 |             heights.append(hght)
+    15:21:55.96 .................. heights = [29, 30, 31, 32, 33, 34, 35, 36, 37]
+    15:21:55.96 .................. len(heights) = 9
+    15:21:55.96   75 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    15:21:55.96   72 |         for album in albums:
+    15:21:55.96 .............. album = [9, '9 - wet_legh']
+    15:21:55.96   73 |             hght = ht + album[0]
+    15:21:55.96 .................. hght = 38
+    15:21:55.96   74 |             heights.append(hght)
+    15:21:55.96 .................. heights = [29, 30, 31, 32, 33, 34, 35, 36, 37, 38]
+    15:21:55.96 .................. len(heights) = 10
+    15:21:55.96   75 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    15:21:55.96   72 |         for album in albums:
+    15:21:55.96 .............. album = [10, '10 - have_a_nice_life_full_album']
+    15:21:55.96   73 |             hght = ht + album[0]
+    15:21:55.96 .................. hght = 39
+    15:21:55.96   74 |             heights.append(hght)
+    15:21:55.96 .................. heights = [29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39]
+    15:21:55.96 .................. len(heights) = 11
+    15:21:55.96   75 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    15:21:55.96   72 |         for album in albums:
+    15:21:55.96 .............. album = [11, '11 - wet_leg']
+    15:21:55.96   73 |             hght = ht + album[0]
+    15:21:55.96 .................. hght = 40
+    15:21:55.96   74 |             heights.append(hght)
+    15:21:55.96 .................. heights = [29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
+    15:21:55.96 .................. len(heights) = 12
+    15:21:55.96   75 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    15:21:55.96   72 |         for album in albums:
+    15:21:55.96 .............. album = [12, '12 - king_hannah']
+    15:21:55.96   73 |             hght = ht + album[0]
+    15:21:55.96 .................. hght = 41
+    15:21:55.96   74 |             heights.append(hght)
+    15:21:55.96 .................. heights = [29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41]
+    15:21:55.96 .................. len(heights) = 13
+    15:21:55.96   75 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    15:21:55.96   72 |         for album in albums:
+    15:21:55.96 .............. album = [13, '13 - soccer_mommy']
+    15:21:55.96   73 |             hght = ht + album[0]
+    15:21:55.97 .................. hght = 42
+    15:21:55.97   74 |             heights.append(hght)
+    15:21:55.97 .................. heights = [29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42]
+    15:21:55.97 .................. len(heights) = 14
+    15:21:55.97   75 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    15:21:55.97   72 |         for album in albums:
+    15:21:55.97 .............. album = [14, '14 - black_wing']
+    15:21:55.97   73 |             hght = ht + album[0]
+    15:21:55.97 .................. hght = 43
+    15:21:55.97   74 |             heights.append(hght)
+    15:21:55.97 .................. heights = [29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43]
+    15:21:55.97 .................. len(heights) = 15
+    15:21:55.97   75 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    15:21:55.97   72 |         for album in albums:
+    15:21:55.97 .............. album = [15, '15 - fontaines_dc']
+    15:21:55.97   73 |             hght = ht + album[0]
+    15:21:55.97 .................. hght = 44
+    15:21:55.97   74 |             heights.append(hght)
+    15:21:55.97 .................. heights = [29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44]
+    15:21:55.97 .................. len(heights) = 16
+    15:21:55.97   75 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    15:21:55.97   72 |         for album in albums:
+    15:21:55.97 .............. album = [16, '16 - deluge']
+    15:21:55.97   73 |             hght = ht + album[0]
+    15:21:55.97 .................. hght = 45
+    15:21:55.97   74 |             heights.append(hght)
+    15:21:55.97 .................. heights = [29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45]
+    15:21:55.97 .................. len(heights) = 17
+    15:21:55.97   75 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    15:21:55.97   72 |         for album in albums:
+    15:21:55.97 .............. album = [17, '17 - songs:_ohia']
+    15:21:55.97   73 |             hght = ht + album[0]
+    15:21:55.97 .................. hght = 46
+    15:21:55.97   74 |             heights.append(hght)
+    15:21:55.97 .................. heights = [29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46]
+    15:21:55.97 .................. len(heights) = 18
+    15:21:55.97   75 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    15:21:55.97   72 |         for album in albums:
+    15:21:55.97 .............. album = [18, '18 - viagra_boys']
+    15:21:55.97   73 |             hght = ht + album[0]
+    15:21:55.97 .................. hght = 47
+    15:21:55.97   74 |             heights.append(hght)
+    15:21:55.97 .................. heights = [29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47]
+    15:21:55.97 .................. len(heights) = 19
+    15:21:55.97   75 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    15:21:55.97   72 |         for album in albums:
+    15:21:55.97 .............. album = [19, '19 - alt-j']
+    15:21:55.97   73 |             hght = ht + album[0]
+    15:21:55.97 .................. hght = 48
+    15:21:55.97   74 |             heights.append(hght)
+    15:21:55.97 .................. heights = [29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48]
+    15:21:55.97 .................. len(heights) = 20
+    15:21:55.97   75 |             print(term.move_xy(wdth, hght) + "\n".join(term.wrap(album[1])))
+    15:21:55.97   72 |         for album in albums:
+    15:21:55.97   79 |         exitht = heights[-1] + 2
+    15:21:55.97 .............. exitht = 50
+    15:21:55.97 .............. type(exitht) = <class 'int'>
+    15:21:55.97   80 |         print(term.move_xy(wdth, exitht) + "Press 'e' to exit after choosing. Press 'q' to exit this screen.")
+    15:21:55.97   83 |         inpt = ""
+    15:21:55.97 .............. inpt = ''
+    15:21:55.97 .............. type(inpt) = <class 'str'>
+    15:21:55.97   85 |         while inpt.lower() != "q":
+    15:21:55.97   87 |             inpt = term.inkey()
+    15:22:11.13 .................. inpt = 'q'
+    15:22:11.13 .................. type(inpt) = <class 'blessed.keyboard.Keystroke'>
+    15:22:11.13   93 |             if inpt != "e":
+    15:22:11.13   95 |                 choicelst.append(str(inpt))
+    15:22:11.13 ...................... choicelst = ['q']
+    15:22:11.13 ...................... len(choicelst) = 1
+    15:22:11.13   98 |                 chcstr = "".join(choicelst)
+    15:22:11.13 ...................... chcstr = 'q'
+    15:22:11.13 ...................... type(chcstr) = <class 'str'>
+    15:22:11.13  101 |                 if chcstr:
+    15:22:11.13  102 |                     choice = [i for f, i in enumerate(content_list) if f == int(chcstr)]
+        15:22:11.13 List comprehension:
+        15:22:11.13  102 |                     choice = [i for f, i in enumerate(content_list) if f == int(chcstr)]
+        15:22:11.14 !!! ValueError: invalid literal for int() with base 10: 'q'
+        15:22:11.14 !!! When calling: int(chcstr)
+        15:22:11.14 .......................... Iterating over <enumerate object at 0x7f2a621a7ab0>
+        15:22:11.14 .......................... Values of type(.0): <class 'enumerate'>
+        15:22:11.14 .......................... Values of chcstr: 'q'
+        15:22:11.14 .......................... Values of type(chcstr): <class 'str'>
+        15:22:11.14 .......................... Values of f: 0
+        15:22:11.14 .......................... Values of type(f): <class 'int'>
+        15:22:11.14 .......................... Values of i: 'porridge_radio'
+        15:22:11.14 .......................... Values of type(i): <class 'str'>
+        15:22:11.14 !!! Call ended by exception
+    15:22:11.14  102 |                     choice = [i for f, i in enumerate(content_list) if f == int(chcstr)]
+    15:22:11.14 !!! ValueError: invalid literal for int() with base 10: 'q'
+    15:22:11.14 !!! When evaluating: [i for f, i in enumerate(content_list) if f == int(chcstr)]
+    15:22:11.14   63 |     with term.fullscreen(), term.cbreak():
+    15:22:11.14   63 |     with term.fullscreen(), term.cbreak():
+    15:22:11.14 !!! Call ended by exception
+15:22:11.14   42 |     choose(music)
+15:22:11.15 !!! ValueError: invalid literal for int() with base 10: 'q'
+15:22:11.15 !!! When calling: choose(music)
+15:22:11.15 !!! Call ended by exception
